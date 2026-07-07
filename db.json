@@ -1,0 +1,242 @@
+{
+  "users": {
+    "citizen1@janvaani.in": {
+      "id": "usr_citizen1",
+      "email": "citizen1@janvaani.in",
+      "password": "password",
+      "name": "Karthik Raja",
+      "phone": "+91 94432 10101",
+      "ward": "Ward 12, Sellur",
+      "constituency": "Madurai Lok Sabha",
+      "state": "Tamil Nadu",
+      "district": "Madurai",
+      "role": "citizen",
+      "createdAt": "2026-06-20T10:00:00.000Z"
+    },
+    "citizen2@janvaani.in": {
+      "id": "usr_citizen2",
+      "email": "citizen2@janvaani.in",
+      "password": "password",
+      "name": "Anitha Selvam",
+      "phone": "+91 94888 12345",
+      "ward": "Ward 45, K.K. Nagar",
+      "constituency": "Madurai Lok Sabha",
+      "state": "Tamil Nadu",
+      "district": "Madurai",
+      "role": "citizen",
+      "createdAt": "2026-06-21T11:30:00.000Z"
+    },
+    "mp@maduraimp.in": {
+      "id": "usr_mp_venkatesan",
+      "email": "mp@maduraimp.in",
+      "password": "password",
+      "name": "Hon. S. Venkatesan, MP",
+      "phone": "+91 452 2530455",
+      "ward": "Madurai Corporation",
+      "constituency": "Madurai Lok Sabha",
+      "state": "Tamil Nadu",
+      "district": "Madurai",
+      "role": "mp",
+      "createdAt": "2026-05-01T09:00:00.000Z"
+    }
+  },
+  "mps": [
+    {
+      "id": "usr_mp_venkatesan",
+      "name": "S. Venkatesan",
+      "email": "mp@maduraimp.in",
+      "phone": "+91-452-2530455",
+      "constituency": "Madurai Lok Sabha",
+      "district": "Madurai",
+      "state": "Tamil Nadu",
+      "party": "Communist Party of India (Marxist) [CPI(M)]",
+      "partyColor": "#cc0000",
+      "photoUrl": "/src/assets/images/mp_venkatesan_portrait_1783325490674.jpg",
+      "biography": "S. Venkatesan (Su. Venkatesan) is a distinguished Tamil novelist, progressive thinker, and Member of Parliament representing the Madurai constituency. He is the General Secretary of the Tamil Nadu Progressive Writers and Artists Association and is acclaimed for his Sahitya Akademi Award-winning historical novel 'Kaval Kottam', which explores 600 years of Madurai's history.\n\nAs Madurai's elected representative, he focuses heavily on securing central archaeological grants for Keeladi, modernizing public railways, improving city sanitation, implementing the Mullaiperiyar water scheme, and boosting local youth employment.",
+      "committees": [
+        "Standing Committee on Education, Women, Children, Youth and Sports",
+        "Consultative Committee on Ministry of Civil Aviation"
+      ],
+      "recentActivities": [
+        "Successfully secured Rs. 15 Crore for Keeladi Archaeological Excavation and Museum site development.",
+        "Chaired the high-level coordination committee for Madurai Airport runway expansion and international flights.",
+        "Inaugurated the expanded 50-bed pediatric ICU wing at Government Rajaji Hospital, funded via MPLADS.",
+        "Presented a memorandum to the Railway Board advocating for the Madurai-Tuticorin double-line electrification."
+      ],
+      "ongoingProjects": [
+        {
+          "id": "proj_mdu_1",
+          "title": "Mullaiperiyar Water Scheme",
+          "budget": "Rs. 320 Crore",
+          "status": "In Progress",
+          "description": "A major water infrastructure project laying dedicated supply lines from Mullaiperiyar dam to guarantee 24x7 drinking water across Madurai."
+        },
+        {
+          "id": "proj_mdu_2",
+          "title": "Smart Heritage Meenakshi Temple Corridor",
+          "budget": "Rs. 85 Crore",
+          "status": "In Progress",
+          "description": "Upgrading local pedestrian pavements, retrofitting vintage streetlights, and building ecological safety zones surrounding the historic Meenakshi Amman Temple."
+        },
+        {
+          "id": "proj_mdu_3",
+          "title": "Model Corporation Schools Rejuvenation",
+          "budget": "Rs. 42 Crore",
+          "status": "Completed",
+          "description": "Modernizing 15 Corporation schools in Madurai with digital smartboards, science labs, and safe sanitary blocks."
+        }
+      ]
+    }
+  ],
+  "concerns": [
+    {
+      "id": "con_1",
+      "citizenId": "usr_citizen1",
+      "citizenName": "Karthik Raja",
+      "citizenEmail": "citizen1@janvaani.in",
+      "citizenPhone": "+91 94432 10101",
+      "title": "Severe Drainage Blockage and Flooding near Goripalayam Junction",
+      "description": "The primary storm drains surrounding the Goripalayam intersection are completely choked with solid waste and construction debris. Every heavy shower turns the junction into a deep pool, stalling public buses, endangering two-wheelers, and leaking garbage onto the street.",
+      "ward": "Ward 22, Goripalayam",
+      "state": "Tamil Nadu",
+      "district": "Madurai",
+      "constituency": "Madurai Lok Sabha",
+      "category": "Sanitation",
+      "tags": [
+        "drainage-clog",
+        "goripalayam-junction",
+        "monsoon-flooding"
+      ],
+      "status": "In Progress",
+      "priority": "High",
+      "isAnonymous": false,
+      "attachmentNote": "Silt level is blocks deep. Water logging remains for hours.",
+      "createdAt": "2026-06-21T08:15:00.000Z",
+      "updatedAt": "2026-06-25T14:00:00.000Z"
+    },
+    {
+      "id": "con_2",
+      "citizenId": "usr_citizen2",
+      "citizenName": "Anitha Selvam",
+      "citizenEmail": "citizen2@janvaani.in",
+      "citizenPhone": "+91 94888 12345",
+      "title": "Inadequate Bus Transit Frequency to Madurai East Suburbs",
+      "description": "Residents in the growing Othakadai and Madurai East suburbs are suffering from lack of regular government buses. During peak office and school hours (8:30 AM to 10:30 AM), buses from Mattuthavani are heavily packed, forcing students to stand on footboards. We need at least 4 additional direct services.",
+      "ward": "Ward 58, Madurai East",
+      "state": "Tamil Nadu",
+      "district": "Madurai",
+      "constituency": "Madurai Lok Sabha",
+      "category": "Public Transport",
+      "tags": [
+        "bus-transit",
+        "suburban-mobility",
+        "crowding"
+      ],
+      "status": "Resolved",
+      "priority": "Medium",
+      "isAnonymous": false,
+      "createdAt": "2026-06-25T14:40:00.000Z",
+      "updatedAt": "2026-07-02T16:20:00.000Z"
+    },
+    {
+      "id": "con_3",
+      "citizenId": "usr_citizen1",
+      "citizenName": "Karthik Raja",
+      "citizenEmail": "citizen1@janvaani.in",
+      "citizenPhone": "+91 94432 10101",
+      "title": "Frequent Drinking Water Supply Disruptions in Sellur",
+      "description": "Our residential lane in Sellur receives municipal drinking water only once in every four or five days, for barely 30 minutes. The pressure is too low to reach first-floor tanks. Many families are forced to purchase expensive private water tankers.",
+      "ward": "Ward 12, Sellur",
+      "state": "Tamil Nadu",
+      "district": "Madurai",
+      "constituency": "Madurai Lok Sabha",
+      "category": "Water Supply",
+      "tags": [
+        "drinking-water",
+        "supply-shortage",
+        "sellur"
+      ],
+      "status": "Submitted",
+      "priority": "High",
+      "isAnonymous": false,
+      "createdAt": "2026-07-04T10:10:00.000Z",
+      "updatedAt": "2026-07-04T10:10:00.000Z"
+    },
+    {
+      "id": "con_4",
+      "citizenId": "usr_citizen2",
+      "citizenName": "Anitha Selvam",
+      "citizenEmail": "citizen2@janvaani.in",
+      "citizenPhone": "+91 94888 12345",
+      "title": "Dark Zones and Broken Streetlights near Meenakshi Temple West Tower lanes",
+      "description": "The lanes leading to the West Tower of the Meenakshi Amman Temple are completely dark after sunset due to four consecutive non-functional streetlights. This is a critical tourist path. Female travelers and local women feel extremely vulnerable walking alone.",
+      "ward": "Ward 3, Simmakkal",
+      "state": "Tamil Nadu",
+      "district": "Madurai",
+      "constituency": "Madurai Lok Sabha",
+      "category": "Women's Safety",
+      "tags": [
+        "temple-safety",
+        "broken-streetlights",
+        "dark-zones"
+      ],
+      "status": "Under Review",
+      "priority": "High",
+      "isAnonymous": false,
+      "createdAt": "2026-07-02T11:20:00.000Z",
+      "updatedAt": "2026-07-03T09:45:00.000Z"
+    }
+  ],
+  "concernUpdates": [
+    {
+      "id": "upd_1",
+      "concernId": "con_1",
+      "mpId": "usr_mp_venkatesan",
+      "mpName": "Hon. S. Venkatesan, MP",
+      "status": "Under Review",
+      "note": "We have reviewed this flooding concern. Goripalayam is a major arterial junction in Madurai. Instructed the Corporation Assistant Commissioner to inspect the blockages.",
+      "visibleToCitizen": true,
+      "createdAt": "2026-06-22T10:30:00.000Z"
+    },
+    {
+      "id": "upd_2",
+      "concernId": "con_1",
+      "mpId": "usr_mp_venkatesan",
+      "mpName": "Hon. S. Venkatesan, MP",
+      "status": "In Progress",
+      "note": "A sanitation field squad has been deployed to Goripalayam. Silt-clearing machinery is working to clear the sub-surface storm drains. Structural improvements will be made to prevent re-clogging.",
+      "visibleToCitizen": true,
+      "createdAt": "2026-06-24T15:00:00.000Z"
+    },
+    {
+      "id": "upd_3",
+      "concernId": "con_2",
+      "mpId": "usr_mp_venkatesan",
+      "mpName": "Hon. S. Venkatesan, MP",
+      "status": "Under Review",
+      "note": "Taking up the suburban crowding issue with the Madurai Division regional manager of the Tamil Nadu State Transport Corporation (TNSTC).",
+      "visibleToCitizen": true,
+      "createdAt": "2026-06-26T09:00:00.000Z"
+    },
+    {
+      "id": "upd_4",
+      "concernId": "con_2",
+      "mpId": "usr_mp_venkatesan",
+      "mpName": "Hon. S. Venkatesan, MP",
+      "status": "In Progress",
+      "note": "TNSTC has confirmed that two peak-hour additional trial trips will start operating on this route from next Monday. We will evaluate boarding loads.",
+      "visibleToCitizen": true,
+      "createdAt": "2026-06-29T11:00:00.000Z"
+    },
+    {
+      "id": "upd_5",
+      "concernId": "con_2",
+      "mpId": "usr_mp_venkatesan",
+      "mpName": "Hon. S. Venkatesan, MP",
+      "status": "Resolved",
+      "note": "TNSTC has permanented 4 peak-hour trips from Mattuthavani to Othakadai. High school and college students are now boarding safely. Closing the grievance.",
+      "visibleToCitizen": true,
+      "createdAt": "2026-07-02T16:20:00.000Z"
+    }
+  ]
+}

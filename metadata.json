@@ -1,0 +1,6 @@
+{
+  "name": "JanVaani",
+  "description": "Citizen Voice to MP Action — a civic platform where citizens submit concerns and MPs triage them with AI-assisted categorization.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
