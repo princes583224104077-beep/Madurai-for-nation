@@ -33,7 +33,7 @@ export default function PublicSubmitConcern({ initialState, onBack, onSuccess }:
   const [state, setState] = useState('Tamil Nadu');
   const [district, setDistrict] = useState('Madurai');
   const [constituency, setConstituency] = useState('Madurai Lok Sabha');
-  const [ward, setWard] = useState('Ward 12, Sellur');
+  const [assemblyConstituency, setAssemblyConstituency] = useState('Madurai Central');
   const [attachmentNote, setAttachmentNote] = useState('');
   
   // Guest user contact details
@@ -62,6 +62,15 @@ export default function PublicSubmitConcern({ initialState, onBack, onSuccess }:
     'Others'
   ];
 
+  const assemblyConstituencies = [
+    'Melur',
+    'Madurai East',
+    'Madurai North',
+    'Madurai South',
+    'Madurai Central',
+    'Madurai West'
+  ];
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!title.trim() || !description.trim() || !constituency.trim()) {
@@ -87,7 +96,7 @@ export default function PublicSubmitConcern({ initialState, onBack, onSuccess }:
           state,
           district,
           constituency,
-          ward: ward || 'General Locality',
+          assemblyConstituency: assemblyConstituency || 'General Locality',
           category: category || undefined, // backend AI will classify if empty
           isAnonymous,
           citizenName: isAnonymous ? 'Anonymous Citizen' : citizenName,
@@ -212,7 +221,7 @@ export default function PublicSubmitConcern({ initialState, onBack, onSuccess }:
             required
           />
 
-          {/* Category & Ward Grid */}
+          {/* Category & Constituency Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label htmlFor="public-category" className="block text-sm font-medium text-slate-700 mb-1.5">
@@ -234,24 +243,18 @@ export default function PublicSubmitConcern({ initialState, onBack, onSuccess }:
             </div>
             <div>
               <label htmlFor="public-ward" className="block text-sm font-medium text-slate-700 mb-1.5">
-                Ward / Locality in Madurai <span className="text-rose-500">*</span>
+                Assembly Constituency <span className="text-rose-500">*</span>
               </label>
               <select
-                id="public-ward"
-                value={ward}
-                onChange={(e) => setWard(e.target.value)}
+                id="public-assembly-constituency"
+                value={assemblyConstituency}
+                onChange={(e) => setAssemblyConstituency(e.target.value)}
                 className="w-full px-3.5 py-2.5 bg-slate-50/50 border border-slate-200 rounded-lg text-slate-800 text-sm focus:outline-hidden focus:border-teal-700 focus:bg-white transition-all cursor-pointer font-medium"
               >
-                <option value="Ward 12, Sellur">Ward 12, Sellur</option>
-                <option value="Ward 22, Goripalayam">Ward 22, Goripalayam</option>
-                <option value="Ward 45, K.K. Nagar">Ward 45, K.K. Nagar</option>
-                <option value="Ward 58, Madurai East">Ward 58, Madurai East</option>
-                <option value="Ward 3, Simmakkal">Ward 3, Simmakkal</option>
-                <option value="Ward 15, Tallakulam">Ward 15, Tallakulam</option>
-                <option value="Ward 8, Anna Nagar">Ward 8, Anna Nagar</option>
-                <option value="Ward 25, Arapalayam">Ward 25, Arapalayam</option>
-                <option value="Ward 32, Kalavasal">Ward 32, Kalavasal</option>
-                <option value="Ward 50, Madurai South">Ward 50, Madurai South</option>
+                <option value="">Select Assembly Constituency</option>
+                {assemblyConstituencies.map(c => (
+                  <option key={c} value={c}>{c}</option>
+                ))}
               </select>
             </div>
           </div>
@@ -375,7 +378,7 @@ export default function PublicSubmitConcern({ initialState, onBack, onSuccess }:
               <div className="p-3.5 bg-indigo-50/50 border border-indigo-100 rounded-xl text-indigo-900 text-[11px] leading-relaxed flex items-start gap-2 animate-fade-in">
                 <EyeOff className="h-4.5 w-4.5 text-indigo-600 shrink-0 mt-0.5" />
                 <p>
-                  <strong>Secured Anonymity:</strong> Your real name, email, and phone will be masked completely. Only your general ward/locality and concern details will be sent to the MP's dashboard.
+                  <strong>Secured Anonymity:</strong> Your real name, email, and phone will be masked completely. Only your assembly constituency and concern details will be sent to the MP's dashboard.
                 </p>
               </div>
             )}

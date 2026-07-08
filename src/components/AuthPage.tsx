@@ -17,8 +17,8 @@ export default function AuthPage({ onAuthSuccess, onBackToLanding, theme = 'ligh
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
-  const [ward, setWard] = useState('Ward 12, Sellur');
   const [constituency, setConstituency] = useState('Madurai Lok Sabha');
+  const [assemblyConstituency, setAssemblyConstituency] = useState('Madurai Central');
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
@@ -29,7 +29,7 @@ export default function AuthPage({ onAuthSuccess, onBackToLanding, theme = 'ligh
 
     const endpoint = isSignUp ? '/api/auth/signup' : '/api/auth/signin';
     const payload = isSignUp
-      ? { email, password, name, phone, ward, constituency, role }
+      ? { email, password, name, phone, assemblyConstituency, constituency, role }
       : { email, password };
 
     try {
@@ -155,25 +155,22 @@ export default function AuthPage({ onAuthSuccess, onBackToLanding, theme = 'ligh
                   placeholder="e.g. +91 98765 43210"
                 />
                 <div className="mb-4">
-                  <label htmlFor="reg-ward" className="block text-sm font-medium text-slate-700 mb-1.5">
-                    Ward / Locality in Madurai <span className="text-rose-500">*</span>
+                  <label htmlFor="reg-assembly-constituency" className="block text-sm font-medium text-slate-700 mb-1.5">
+                    Assembly Constituency <span className="text-rose-500">*</span>
                   </label>
                   <select
-                    id="reg-ward"
-                    value={ward}
-                    onChange={(e) => setWard(e.target.value)}
+                    id="reg-assembly-constituency"
+                    value={assemblyConstituency}
+                    onChange={(e) => setAssemblyConstituency(e.target.value)}
                     className="w-full px-3.5 py-2.5 bg-slate-50/50 border border-slate-200 rounded-lg text-slate-800 focus:outline-hidden focus:border-teal-700 focus:bg-white transition-all text-sm cursor-pointer"
                   >
-                    <option value="Ward 12, Sellur">Ward 12, Sellur</option>
-                    <option value="Ward 22, Goripalayam">Ward 22, Goripalayam</option>
-                    <option value="Ward 45, K.K. Nagar">Ward 45, K.K. Nagar</option>
-                    <option value="Ward 58, Madurai East">Ward 58, Madurai East</option>
-                    <option value="Ward 3, Simmakkal">Ward 3, Simmakkal</option>
-                    <option value="Ward 15, Tallakulam">Ward 15, Tallakulam</option>
-                    <option value="Ward 8, Anna Nagar">Ward 8, Anna Nagar</option>
-                    <option value="Ward 25, Arapalayam">Ward 25, Arapalayam</option>
-                    <option value="Ward 32, Kalavasal">Ward 32, Kalavasal</option>
-                    <option value="Ward 50, Madurai South">Ward 50, Madurai South</option>
+                    <option value="">Select Assembly Constituency</option>
+                    <option value="Melur">Melur</option>
+                    <option value="Madurai East">Madurai East</option>
+                    <option value="Madurai North">Madurai North</option>
+                    <option value="Madurai South">Madurai South</option>
+                    <option value="Madurai Central">Madurai Central</option>
+                    <option value="Madurai West">Madurai West</option>
                   </select>
                 </div>
                 <div className="mb-4">

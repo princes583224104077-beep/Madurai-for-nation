@@ -5,7 +5,7 @@ export interface UserProfile {
   email: string;
   name: string;
   phone: string;
-  ward: string;
+  assemblyConstituency: string;
   constituency: string;
   state?: string;
   district?: string;
@@ -13,7 +13,18 @@ export interface UserProfile {
   createdAt: string;
 }
 
-export type ConcernStatus = 'Submitted' | 'Under Review' | 'In Progress' | 'Resolved';
+export type ConcernStatus =
+  | 'Submitted'
+  | 'Received by Office'
+  | 'Under Verification'
+  | 'Assigned to Department'
+  | 'Officer Reviewing'
+  | 'Action Initiated'
+  | 'In Progress'
+  | 'Awaiting Approval'
+  | 'Resolved'
+  | 'Closed'
+  | 'Under Review';
 
 export type ConcernCategory =
   | 'Roads'
@@ -51,7 +62,8 @@ export interface MPProfile {
 }
 
 export interface Concern {
-  id: string; // This is also the tracking ID
+  id: string;
+  trackingId: string;
   citizenId: string;
   citizenName: string;
   citizenEmail: string;
@@ -61,16 +73,21 @@ export interface Concern {
   state: string;
   district: string;
   constituency: string;
-  ward: string;
+  assemblyConstituency: string;
   category: ConcernCategory;
   tags: string[];
   status: ConcernStatus;
+  department?: string;
+  assignedOfficer?: string;
+  priority?: 'Low' | 'Medium' | 'High';
+  estimatedCompletion?: string;
+  resolvedAt?: string;
   attachmentNote?: string;
   isAnonymous: boolean;
   createdAt: string;
   updatedAt: string;
   mpNotes?: string;
-  priority?: 'Low' | 'Medium' | 'High';
+  aiSummary?: string;
 }
 
 export interface ConcernUpdate {
@@ -80,6 +97,9 @@ export interface ConcernUpdate {
   mpName: string;
   status: ConcernStatus;
   note: string;
+  remarks?: string;
+  updatedBy?: string;
+  department?: string;
   visibleToCitizen: boolean;
   createdAt: string;
 }
@@ -94,6 +114,6 @@ export interface AnalyticsData {
   byCategory: { category: string; count: number }[];
   byStatus: { status: string; count: number }[];
   volumeOverTime: { date: string; count: number }[];
-  topWards: { ward: string; count: number }[];
+  topConstituencies: { assemblyConstituency: string; count: number }[];
 }
 

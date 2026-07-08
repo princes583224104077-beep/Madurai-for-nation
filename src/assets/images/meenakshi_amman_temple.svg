@@ -1,0 +1,39 @@
+<svg width="1200" height="1600" viewBox="0 0 1200 1600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="1600" fill="#FCF5E7"/>
+  <rect x="100" y="1100" width="1000" height="250" rx="30" fill="#FFFFFF" stroke="#C89B3C" stroke-width="10"/>
+  <path d="M300 1350H900" stroke="#C89B3C" stroke-width="12"/>
+  <path d="M120 1400H1080" stroke="#D9B471" stroke-width="8" stroke-linecap="round"/>
+  <path d="M190 1300H1010" stroke="#B88F3F" stroke-width="8" stroke-linecap="round"/>
+  <path d="M300 1380L320 1260L360 1380H340L330 1320L320 1380H300Z" fill="#D9B471"/>
+  <path d="M760 1380L780 1260L820 1380H800L790 1320L780 1380H760Z" fill="#D9B471"/>
+  <path d="M140 1330L160 1220L210 1330H190L175 1265L160 1330H140Z" fill="#D9B471"/>
+  <path d="M1020 1330L1040 1220L1090 1330H1070L1055 1265L1040 1330H1020Z" fill="#D9B471"/>
+  <path d="M420 1100L420 380L450 350H750L780 380V1100H420Z" fill="#FFFFFF" stroke="#5A3A0B" stroke-width="14"/>
+  <path d="M420 380H780" stroke="#5A3A0B" stroke-width="14"/>
+  <path d="M460 350V280" stroke="#5A3A0B" stroke-width="10"/>
+  <path d="M760 350V280" stroke="#5A3A0B" stroke-width="10"/>
+  <path d="M480 280C480 240 520 220 600 220C680 220 720 240 720 280" stroke="#5A3A0B" stroke-width="10" fill="none"/>
+  <path d="M520 220V180" stroke="#5A3A0B" stroke-width="10"/>
+  <path d="M680 220V180" stroke="#5A3A0B" stroke-width="10"/>
+  <path d="M520 160H680" stroke="#5A3A0B" stroke-width="10"/>
+  <path d="M470 430H760" stroke="#5A3A0B" stroke-width="12"/>
+  <path d="M520 460H720" stroke="#5A3A0B" stroke-width="10"/>
+  <path d="M450 520H760" stroke="#5A3A0B" stroke-width="8"/>
+  <path d="M450 580H760" stroke="#5A3A0B" stroke-width="8"/>
+  <path d="M450 640H760" stroke="#5A3A0B" stroke-width="8"/>
+  <path d="M450 700H760" stroke="#5A3A0B" stroke-width="8"/>
+  <path d="M450 760H760" stroke="#5A3A0B" stroke-width="8"/>
+  <path d="M450 820H760" stroke="#5A3A0B" stroke-width="8"/>
+  <path d="M450 880H760" stroke="#5A3A0B" stroke-width="8"/>
+  <path d="M450 940H760" stroke="#5A3A0B" stroke-width="8"/>
+  <path d="M450 1000H760" stroke="#5A3A0B" stroke-width="8"/>
+  <path d="M510 1150H690" stroke="#5A3A0B" stroke-width="14"/>
+  <path d="M520 1150V980" stroke="#5A3A0B" stroke-width="12"/>
+  <path d="M680 1150V980" stroke="#5A3A0B" stroke-width="12"/>
+  <path d="M570 1080C570 1030 610 1010 630 1010C650 1010 690 1030 690 1080" stroke="#5A3A0B" stroke-width="8" fill="none"/>
+  <path d="M400 1120H440" stroke="#5A3A0B" stroke-width="10"/>
+  <path d="M760 1120H800" stroke="#5A3A0B" stroke-width="10"/>
+  <text x="120" y="1240" fill="#5A3A0B" font-family="Montserrat, sans-serif" font-size="56" font-weight="700">Madurai</text>
+  <text x="120" y="1305" fill="#5A3A0B" font-family="Montserrat, sans-serif" font-size="28" letter-spacing="0.12em">India</text>
+  <text x="120" y="1420" fill="#5A3A0B" font-family="Montserrat, sans-serif" font-size="26" letter-spacing="0.16em">Heritage Corridor</text>
+</svg>

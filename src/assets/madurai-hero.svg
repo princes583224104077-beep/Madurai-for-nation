@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3840 2160" width="3840" height="2160" role="img" aria-label="Madurai temple hero illustration">
+  <!-- Background gradient sky: soft golden-yellow to white -->
+  <defs>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFD97A" stop-opacity="1" />
+      <stop offset="55%" stop-color="#FFECC9" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="1" />
+    </linearGradient>
+    <!-- hand-drawn stroke style -->
+    <style>
+      .line { fill: none; stroke: #111111; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+      .fine { stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+      .accent { stroke-width: 4; }
+      .title { font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; fill: #111111; }
+      .subtitle { font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; font-weight: 400; fill: #111111; opacity: 0.75; }
+    </style>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="100%" height="50%" y="0" fill="url(#skyGrad)" />
+  <rect width="100%" height="100%" y="0" fill="transparent" />
+
+  <!-- Ground / negative space -->
+  <rect y="1200" width="100%" height="960" fill="#FFFFFF" />
+
+  <!-- Perspective street lines (foreground) -->
+  <g id="street" transform="translate(0,0)">
+    <path class="line fine" d="M400 1600 C 1200 1200, 2640 1200, 3440 1600" opacity="0.12" />
+    <path class="line" d="M680 2100 L 1920 1250 L 3160 2100" />
+    <path class="line fine" d="M760 2100 L 1920 1400 L 3080 2100" opacity="0.6" />
+  </g>
+
+  <!-- Flanking temple-street buildings, stylized simple facades -->
+  <g id="left-street" transform="translate(0,0)">
+    <!-- row of low shops, repeated patterns for minimal detail -->
+    <g transform="translate(160,1100)">
+      <path class="line" d="M0 0 L 260 0 L 260 360 L 0 360 Z" />
+      <path class="line fine" d="M20 60 L 240 60" />
+      <path class="line fine" d="M20 140 L 240 140" />
+      <path class="line fine" d="M20 220 L 240 220" />
+      <path class="line" d="M140 0 L 140 -40" />
+    </g>
+
+    <g transform="translate(420,980) scale(0.9)">
+      <path class="line" d="M0 0 L 260 0 L 260 420 L 0 420 Z" />
+      <path class="line fine" d="M24 86 L 236 86" />
+      <path class="line fine" d="M24 176 L 236 176" />
+    </g>
+
+    <g transform="translate(740,860) scale(0.8)">
+      <path class="line" d="M0 0 L 320 0 L 320 520 L 0 520 Z" />
+      <path class="line fine" d="M30 130 L 290 130" />
+      <path class="line fine" d="M30 260 L 290 260" />
+    </g>
+  </g>
+
+  <g id="right-street">
+    <g transform="translate(2600,1100) scale(-1,1)">
+      <use href="#left-street" />
+    </g>
+  </g>
+
+  <!-- Temple silhouette and detailed gopuram linework (stylized, original design) -->
+  <g id="gopuram" transform="translate(1440,380) scale(0.9)">
+    <!-- base plinth -->
+    <path class="line" d="M0 900 L 720 900 L 720 820 L 0 820 Z" />
+
+    <!-- tiered structure - five tiers with decorative friezes -->
+    <g>
+      <path class="line" d="M40 820 L 680 820 L 640 720 L 80 720 Z" />
+      <path class="line fine" d="M90 760 L 620 760" />
+      <path class="line" d="M80 720 L 600 720 L 560 640 L 120 640 Z" />
+      <path class="line fine" d="M130 680 L 550 680" />
+      <path class="line" d="M120 640 L 540 640 L 500 560 L 160 560 Z" />
+      <path class="line fine" d="M170 600 L 490 600" />
+      <path class="line" d="M160 560 L 480 560 L 440 480 L 200 480 Z" />
+      <path class="line fine" d="M210 520 L 430 520" />
+      <path class="line" d="M200 480 L 420 480 L 380 420 L 240 420 Z" />
+      <path class="line fine" d="M240 450 L 360 450" />
+    </g>
+
+    <!-- ornamental vertical fluted pilasters -->
+    <g class="fine">
+      <path d="M120 820 L 120 420" />
+      <path d="M200 820 L 200 420" />
+      <path d="M280 820 L 280 420" />
+      <path d="M360 820 L 360 420" />
+      <path d="M440 820 L 440 420" />
+      <path d="M520 820 L 520 420" />
+    </g>
+
+    <!-- stylized sculptural niches as small arches -->
+    <g class="line">
+      <path d="M160 740 q40 -48 80 0" />
+      <path d="M240 700 q40 -48 80 0" />
+      <path d="M320 660 q40 -48 80 0" />
+      <path d="M200 620 q40 -48 80 0" opacity="0.9" />
+      <path d="M280 580 q40 -48 80 0" opacity="0.9" />
+    </g>
+
+    <!-- top kalasam outline -->
+    <path class="line accent" d="M320 380 q60 -100 160 0" />
+    <path class="line fine" d="M360 360 q40 -60 120 0" opacity="0.95" />
+
+    <!-- fine cross-hatching to hint carved texture (subtle) -->
+    <g class="fine" opacity="0.14">
+      <path d="M100 760 L 540 520" />
+      <path d="M120 780 L 560 540" />
+      <path d="M140 800 L 580 560" />
+    </g>
+  </g>
+
+  <!-- Title area - top-left with ample negative space for site content -->
+  <g transform="translate(160,120)" aria-hidden="false">
+    <text x="0" y="80" font-size="96" class="title">Madurai</text>
+    <text x="0" y="140" font-size="36" class="subtitle">India</text>
+  </g>
+
+  <!-- Optional safe-area rectangle (invisible) to guide responsive layout) -->
+  <rect x="160" y="160" width="3520" height="1840" fill="none" stroke="none" />
+
+</svg>

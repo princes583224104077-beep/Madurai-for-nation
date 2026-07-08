@@ -19,8 +19,8 @@ export default function AnalyticsCharts({ theme = 'light', lang = 'en' }: Analyt
       categoryTitle: 'Grievance Distribution by Department Category',
       statusTitle: 'Current Resolution Lifecycle Split',
       timelineTitle: 'Monthly Grievance Filing Volume Trend (2026)',
-      wardRanking: 'Ward Activity & Resolve Rates (Top Wards)',
-      ward: 'Ward',
+      wardRanking: 'Constituency Activity & Resolve Rates (Top Constituencies)',
+      ward: 'Constituency',
       received: 'Received',
       resolved: 'Resolved',
       efficiency: 'Efficiency'
@@ -34,8 +34,8 @@ export default function AnalyticsCharts({ theme = 'light', lang = 'en' }: Analyt
       categoryTitle: 'துறை வாரியான குறைபாடுகளின் பங்கீடு',
       statusTitle: 'தற்போதைய தீர்வு வாழ்க்கைச் சுழற்சி பிரிவு',
       timelineTitle: 'மாதாந்திர புகார் தாக்கல் அளவு போக்கு (2026)',
-      wardRanking: 'வார்டு வாரியான தீர்வு விகிதங்கள்',
-      ward: 'வார்டு',
+      wardRanking: 'தொகுதி செயல்திறன் & தீர்வு விகிதங்கள்',
+      ward: 'தொகுதி',
       received: 'பெறப்பட்டவை',
       resolved: 'தீர்க்கப்பட்டவை',
       efficiency: 'செயல்திறன்'
@@ -68,11 +68,11 @@ export default function AnalyticsCharts({ theme = 'light', lang = 'en' }: Analyt
   ];
 
   const topWards = [
-    { name: lang === 'ta' ? 'வார்டு 22, கோரிப்பாளையம்' : 'Ward 22, Goripalayam', received: 580, resolved: 510, efficiency: 88 },
-    { name: lang === 'ta' ? 'வார்டு 12, செல்லூர்' : 'Ward 12, Sellur', received: 420, resolved: 390, efficiency: 92 },
-    { name: lang === 'ta' ? 'வார்டு 3, சிம்மக்கல்' : 'Ward 3, Simmakkal', received: 350, resolved: 310, efficiency: 88 },
-    { name: lang === 'ta' ? 'வார்டு 15, தல்லாகுளம்' : 'Ward 15, Tallakulam', received: 290, resolved: 275, efficiency: 94 },
-    { name: lang === 'ta' ? 'வார்டு 45, கே.கே. நகர்' : 'Ward 45, K.K. Nagar', received: 230, resolved: 220, efficiency: 95 }
+    { name: lang === 'ta' ? 'மெலூர்' : 'Melur', received: 580, resolved: 510, efficiency: 88 },
+    { name: lang === 'ta' ? 'மதுரை கிழக்கு' : 'Madurai East', received: 420, resolved: 390, efficiency: 92 },
+    { name: lang === 'ta' ? 'மதுரை வடக்கு' : 'Madurai North', received: 350, resolved: 310, efficiency: 88 },
+    { name: lang === 'ta' ? 'மதுரை தெற்கு' : 'Madurai South', received: 290, resolved: 275, efficiency: 94 },
+    { name: lang === 'ta' ? 'மதுரை மத்திய' : 'Madurai Central', received: 230, resolved: 220, efficiency: 95 }
   ];
 
   return (

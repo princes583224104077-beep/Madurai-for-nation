@@ -155,7 +155,7 @@ export default function ConcernTracker({ onBack, initialId = '' }: ConcernTracke
                   <Calendar className="h-3.5 w-3.5" /> Filed {formatDate(concern.createdAt)}
                 </span>
                 <span className="flex items-center gap-1">
-                  <MapPin className="h-3.5 w-3.5" /> {concern.ward}, {concern.constituency}
+                  <MapPin className="h-3.5 w-3.5" /> {concern.assemblyConstituency}, {concern.constituency}
                 </span>
               </div>
             </div>

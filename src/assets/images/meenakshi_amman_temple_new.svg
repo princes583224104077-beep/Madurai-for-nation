@@ -1,0 +1,56 @@
+<svg width="1200" height="1700" viewBox="0 0 1200 1700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="1700" fill="#FFFFFF"/>
+  <g stroke="#000000" fill="none" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M320 1460H880" />
+    <path d="M340 1460L370 1320H830L860 1460" />
+    <path d="M370 1320H820" />
+    <path d="M360 1320L420 1200H780L840 1320" />
+    <path d="M410 1200L460 1080H740L790 1200" />
+    <path d="M460 1080L500 960H700L740 1080" />
+    <path d="M520 960L540 860H660L680 960" />
+    <path d="M560 860L580 760H620L640 860" />
+    <path d="M580 760H620" />
+    <path d="M430 720H730" />
+    <path d="M430 720L450 660H710L730 720" />
+    <path d="M460 660L500 620H700L740 660" />
+    <path d="M500 620L560 580H640L700 620" />
+    <path d="M520 580H680" />
+    <path d="M520 580L540 520H660L680 580" />
+    <path d="M300 1080L260 980L220 1040L260 1140L320 1120" />
+    <path d="M900 1080L940 980L980 1040L940 1140L880 1120" />
+    <path d="M310 1480C310 1440 350 1420 430 1420C510 1420 550 1440 550 1480" />
+    <path d="M890 1480C890 1440 850 1420 770 1420C690 1420 650 1440 650 1480" />
+  </g>
+  <g stroke="#000000" fill="none" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M420 1100V380H450H750V1100" />
+    <path d="M450 380H750" />
+    <path d="M480 350V280" />
+    <path d="M720 350V280" />
+    <path d="M500 280C500 240 540 220 600 220C660 220 700 240 700 280" />
+    <path d="M540 220V180" />
+    <path d="M660 220V180" />
+    <path d="M540 160H660" />
+    <path d="M460 430H740" />
+    <path d="M500 470H700" />
+    <path d="M460 520H740" />
+    <path d="M460 580H740" />
+    <path d="M460 640H740" />
+    <path d="M460 700H740" />
+    <path d="M460 760H740" />
+    <path d="M460 820H740" />
+    <path d="M460 880H740" />
+    <path d="M460 940H740" />
+    <path d="M500 980H700" />
+    <path d="M520 980V900" />
+    <path d="M680 980V900" />
+    <path d="M560 930C560 900 600 880 620 880C640 880 680 900 680 930" />
+    <path d="M430 1120H470" />
+    <path d="M730 1120H770" />
+  </g>
+  <g stroke="#000000" fill="none" stroke-width="12" opacity="0.85">
+    <path d="M150 1520L190 1300L250 1420L290 1340L340 1470" />
+    <path d="M1050 1520L1010 1300L950 1420L910 1340L860 1470" />
+  </g>
+  <text x="360" y="1590" fill="#000000" font-family="Georgia, serif" font-size="72" font-weight="700">Meenakshi Amman Temple</text>
+  <text x="370" y="1655" fill="#000000" font-family="Georgia, serif" font-size="42" font-weight="500" opacity="0.65">Madurai • Heritage Line Art</text>
+</svg>

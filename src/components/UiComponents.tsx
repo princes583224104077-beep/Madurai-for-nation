@@ -3,14 +3,21 @@ import { ConcernStatus } from '../types';
 
 export function StatusBadge({ status }: { status: ConcernStatus }) {
   const styles: Record<ConcernStatus, string> = {
-    'Submitted': 'bg-blue-50 text-blue-700 border border-blue-200/60',
-    'Under Review': 'bg-amber-50 text-amber-700 border border-amber-200/60',
-    'In Progress': 'bg-indigo-50 text-indigo-700 border border-indigo-200/60',
-    'Resolved': 'bg-emerald-50 text-emerald-700 border border-emerald-200/60',
+    'Submitted': 'bg-[#E8F9F0] text-[#0F6B4D] border border-[#D6F2E6]',
+    'Received by Office': 'bg-[#F8FAFC] text-[#475569] border border-[#E2E8F0]',
+    'Under Verification': 'bg-[#FFF7ED] text-[#B45309] border border-[#FCD34D]/30',
+    'Assigned to Department': 'bg-[#EEF2FF] text-[#4338CA] border border-[#C7D2FE]',
+    'Officer Reviewing': 'bg-[#ECFEFF] text-[#0E7490] border border-[#A5F3FC]',
+    'Action Initiated': 'bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE]',
+    'In Progress': 'bg-[#EEF2FF] text-[#4338CA] border border-[#C7D2FE]',
+    'Awaiting Approval': 'bg-[#FEF3C7] text-[#B45309] border border-[#FDE68A]',
+    'Resolved': 'bg-[#ECFDF5] text-[#166534] border border-[#A7F3D0]',
+    'Closed': 'bg-[#F8FAFC] text-[#475569] border border-[#E2E8F0]',
+    'Under Review': 'bg-[#FEF3C7] text-[#B45309] border border-[#FDE68A]',
   };
 
   return (
-    <span id={`status-badge-${status.toLowerCase().replace(/\s+/g, '-')}`} className={`px-2.5 py-1 text-xs font-semibold rounded-full ${styles[status] || 'bg-slate-50 text-slate-700'}`}>
+    <span id={`status-badge-${status.toLowerCase().replace(/\s+/g, '-')}`} className={`px-3 py-1.5 text-[11px] font-semibold rounded-full tracking-wide ${styles[status] || 'bg-slate-50 text-slate-700'}`}>
       {status}
     </span>
   );
@@ -19,21 +26,21 @@ export function StatusBadge({ status }: { status: ConcernStatus }) {
 export function PriorityBadge({ priority }: { priority?: 'Low' | 'Medium' | 'High' }) {
   const prio = priority || 'Medium';
   const styles = {
-    'Low': 'bg-slate-100 text-slate-700 border border-slate-200/60',
-    'Medium': 'bg-amber-50 text-amber-800 border border-amber-200/60',
-    'High': 'bg-rose-50 text-rose-700 border border-rose-200/60 font-semibold',
+    'Low': 'bg-[#F1F5F9] text-[#475569] border border-[#E2E8F0]',
+    'Medium': 'bg-[#FEF9C3] text-[#92400E] border border-[#FDE68A]',
+    'High': 'bg-[#FEE2E2] text-[#B91C1C] border border-[#FECACA] font-semibold',
   };
 
   return (
-    <span id={`priority-badge-${prio.toLowerCase()}`} className={`px-2.5 py-1 text-xs font-medium rounded-full uppercase tracking-wider ${styles[prio]}`}>
-      {prio} Priority
+    <span id={`priority-badge-${prio.toLowerCase()}`} className={`px-3 py-1.5 text-[11px] font-semibold rounded-full uppercase tracking-[0.22em] ${styles[prio]}`}>
+      {prio}
     </span>
   );
 }
 
 export function Card({ children, className = '', id }: { children: React.ReactNode; className?: string; id?: string }) {
   return (
-    <div id={id} className={`bg-white border border-slate-100 rounded-xl shadow-xs p-6 hover:shadow-md transition-shadow duration-200 ${className}`}>
+    <div id={id} className={`glass-card p-6 ${className}`}>
       {children}
     </div>
   );
@@ -53,7 +60,7 @@ export function PrimaryButton({ children, onClick, type = 'button', disabled = f
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`px-5 py-2.5 bg-indigo-950 text-white rounded-lg font-medium hover:bg-indigo-900 transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer ${className}`}
+      className={`px-5 py-2.5 rounded-[16px] bg-gradient-to-r from-[#0F6B4D] to-[#118C62] text-white font-semibold shadow-[0_18px_40px_-20px_rgba(15,107,77,0.55)] transition duration-200 hover:shadow-[0_22px_50px_-22px_rgba(15,107,77,0.65)] disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer ${className}`}
     >
       {children}
     </button>
@@ -74,7 +81,7 @@ export function SecondaryButton({ children, onClick, type = 'button', disabled =
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`px-5 py-2.5 bg-white text-indigo-950 border border-slate-200 rounded-lg font-medium hover:bg-slate-50 transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer ${className}`}
+      className={`px-5 py-2.5 rounded-[16px] bg-white text-[#0F172A] border border-[#E5E7EB] font-semibold transition duration-200 hover:border-[#0F6B4D] hover:text-[#0F6B4D] hover:bg-[#F8FAFC] disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer ${className}`}
     >
       {children}
     </button>

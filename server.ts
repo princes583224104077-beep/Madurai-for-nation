@@ -8,7 +8,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
-const PORT = 3000;
+let PORT = process.env.PORT ? Number(process.env.PORT) : 3000;
 const DB_FILE = path.join(process.cwd(), "db.json");
 
 app.use(express.json());
@@ -262,12 +262,48 @@ function initializeDb() {
 
 const db = initializeDb();
 
+// Ensure DB meta for tracking sequence exists
+if (!db._meta) db._meta = {};
+if (!db._meta.nextTrackingNumber) {
+  // derive from existing trackingIds if present
+  try {
+    const existing = (db.concerns || []).map((c: any) => c.trackingId).filter(Boolean);
+    let max = 0;
+    existing.forEach((tid: string) => {
+      const m = tid && tid.match(/JV-MDU-(\d{4})-(\d{6})/);
+      if (m) {
+        const num = parseInt(m[2], 10);
+        if (num > max) max = num;
+      }
+    });
+    db._meta.nextTrackingNumber = max + 1 || 1;
+  } catch (e) {
+    db._meta.nextTrackingNumber = 1;
+  }
+}
+
 function saveDb(data: any) {
   try {
     fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2), "utf-8");
   } catch (e) {
     console.error("Failed to save database:", e);
   }
+}
+
+// Helper to format tracking id: JV-MDU-YYYY-000001
+function formatTrackingId(year: number, seq: number) {
+  const padded = String(seq).padStart(6, "0");
+  return `JV-MDU-${year}-${padded}`;
+}
+
+function generateTrackingId() {
+  const year = new Date().getFullYear();
+  if (!db._meta) db._meta = { nextTrackingNumber: 1 };
+  const seq = db._meta.nextTrackingNumber || 1;
+  const trackingId = formatTrackingId(year, seq);
+  db._meta.nextTrackingNumber = seq + 1;
+  saveDb(db);
+  return trackingId;
 }
 
 // Lazy init for Google Gen AI
@@ -562,12 +598,13 @@ app.post("/api/concerns", async (req, res) => {
   try {
     const aiResult = await classifyConcern(title, description);
     
-    // Generate a unique professional tracking ID: e.g., JV-78294
-    const trackingDigits = Math.floor(100000 + Math.random() * 900000);
-    const trackingId = `JV-${trackingDigits}`;
+    // Generate a sequential tracking ID and an internal concern id
+    const trackingId = generateTrackingId();
+    const internalId = "con_" + Math.random().toString(36).substring(2, 11);
 
     const newConcern = {
-      id: trackingId,
+      id: internalId,
+      trackingId,
       citizenId: user.id,
       citizenName: isAnonymous ? "Anonymous Citizen" : user.name,
       citizenEmail: isAnonymous ? "" : user.email,
@@ -587,7 +624,23 @@ app.post("/api/concerns", async (req, res) => {
       updatedAt: new Date().toISOString()
     };
 
-    db.concerns.unshift(newConcern); 
+    // Add initial timeline update
+    const updateId = "upd_" + Math.random().toString(36).substring(2, 11);
+    const initialUpdate = {
+      id: updateId,
+      concernId: internalId,
+      mpId: user.id,
+      mpName: user.name,
+      status: "Submitted",
+      note: "Concern submitted by citizen.",
+      visibleToCitizen: true,
+      createdAt: new Date().toISOString()
+    };
+
+    if (!db.concernUpdates) db.concernUpdates = [];
+    db.concernUpdates.push(initialUpdate);
+
+    db.concerns.unshift(newConcern);
     saveDb(db);
 
     res.json(newConcern);
@@ -607,19 +660,20 @@ app.post("/api/concerns/public", async (req, res) => {
   try {
     const aiResult = await classifyConcern(title, description);
     
-    const trackingDigits = Math.floor(100000 + Math.random() * 900000);
-    const trackingId = `JV-${trackingDigits}`;
+    const trackingId = generateTrackingId();
+    const internalId = "con_" + Math.random().toString(36).substring(2, 11);
 
     const newConcern = {
-      id: trackingId,
+      id: internalId,
+      trackingId,
       citizenId: "guest",
       citizenName: isAnonymous ? "Anonymous Citizen" : (citizenName || "Guest Citizen"),
       citizenEmail: isAnonymous ? "" : (citizenEmail || ""),
       citizenPhone: isAnonymous ? "" : (citizenPhone || ""),
       title,
       description,
-      state: state || "Delhi",
-      district: district || "New Delhi",
+      state: state || "Tamil Nadu",
+      district: district || "Madurai",
       constituency,
       ward: ward || "General Area",
       category: category || aiResult.category,
@@ -631,7 +685,22 @@ app.post("/api/concerns/public", async (req, res) => {
       updatedAt: new Date().toISOString()
     };
 
-    db.concerns.unshift(newConcern); 
+    const updateId = "upd_" + Math.random().toString(36).substring(2, 11);
+    const initialUpdate = {
+      id: updateId,
+      concernId: internalId,
+      mpId: "system",
+      mpName: "System",
+      status: "Submitted",
+      note: "Public concern submitted.",
+      visibleToCitizen: true,
+      createdAt: new Date().toISOString()
+    };
+
+    if (!db.concernUpdates) db.concernUpdates = [];
+    db.concernUpdates.push(initialUpdate);
+
+    db.concerns.unshift(newConcern);
     saveDb(db);
 
     res.json(newConcern);
@@ -643,14 +712,15 @@ app.post("/api/concerns/public", async (req, res) => {
 
 // Public Tracking retrieve endpoint (No Auth Required)
 app.get("/api/concerns/track/:id", (req, res) => {
-  const trackingId = req.params.id.trim();
-  const concern = db.concerns.find((c: any) => c.id.toLowerCase() === trackingId.toLowerCase());
-  
+  const q = req.params.id.trim();
+  // accept either internal id or public trackingId
+  const concern = db.concerns.find((c: any) => (c.id && c.id.toLowerCase() === q.toLowerCase()) || (c.trackingId && c.trackingId.toLowerCase() === q.toLowerCase()));
+
   if (!concern) {
     return res.status(404).json({ error: "No concern found with this Tracking ID." });
   }
 
-  // Retrieve updates for this concern
+  // Retrieve updates for this concern (visible to citizen)
   const updates = (db.concernUpdates || []).filter((u: any) => u.concernId === concern.id && u.visibleToCitizen);
 
   res.json({ concern, updates });
@@ -686,7 +756,8 @@ app.get("/api/concerns/:id", (req, res) => {
     return res.status(401).json({ error: "Authentication required." });
   }
 
-  const concern = db.concerns.find((c: any) => c.id === req.params.id);
+  const q = req.params.id;
+  const concern = db.concerns.find((c: any) => c.id === q || (c.trackingId && c.trackingId === q));
   if (!concern) {
     return res.status(404).json({ error: "Concern not found." });
   }
@@ -719,7 +790,8 @@ app.post("/api/concerns/:id/updates", (req, res) => {
     return res.status(403).json({ error: "Only MPs can update concerns." });
   }
 
-  const concern = db.concerns.find((c: any) => c.id === req.params.id);
+  const q = req.params.id;
+  const concern = db.concerns.find((c: any) => c.id === q || (c.trackingId && c.trackingId === q));
   if (!concern) {
     return res.status(404).json({ error: "Concern not found." });
   }
@@ -1006,9 +1078,30 @@ async function startServer() {
     });
   }
 
-  app.listen(PORT, "0.0.0.0", () => {
-    console.log(`JanVaani Server running on http://0.0.0.0:${PORT}`);
-  });
+  const maxAttempts = 10;
+  let attempts = 0;
+
+  function tryListen(port: number) {
+    const serverInstance = app.listen(port, "0.0.0.0", () => {
+      PORT = port;
+      console.log(`JanVaani Server running on http://0.0.0.0:${PORT}`);
+    });
+
+    serverInstance.on("error", (err: any) => {
+      if (err && err.code === "EADDRINUSE" && attempts < maxAttempts) {
+        attempts++;
+        const nextPort = port + 1;
+        console.warn(`Port ${port} already in use, trying ${nextPort}...`);
+        // give a tiny delay before retrying
+        setTimeout(() => tryListen(nextPort), 200);
+      } else {
+        console.error("Server failed to start:", err);
+        process.exit(1);
+      }
+    });
+  }
+
+  tryListen(PORT);
 }
 
 startServer();

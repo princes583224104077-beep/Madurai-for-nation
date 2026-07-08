@@ -50,7 +50,7 @@ export default function MpDashboard({ profile, token, onLogout, theme = 'light',
   const [filterCategory, setFilterCategory] = useState<string>('All');
   const [filterStatus, setFilterStatus] = useState<string>('All');
   const [filterUrgency, setFilterUrgency] = useState<string>('All');
-  const [filterWard, setFilterWard] = useState<string>('All');
+  const [filterAssemblyConstituency, setFilterAssemblyConstituency] = useState<string>('All');
   const [sortOrder, setSortOrder] = useState<'priority' | 'newest' | 'oldest'>('priority');
 
   // Selection & Details
@@ -267,7 +267,7 @@ export default function MpDashboard({ profile, token, onLogout, theme = 'light',
   };
 
   // Unique lists for filtering
-  const wards = Array.from(new Set(concerns.map(c => c.ward)));
+  const assemblyConstituencies = Array.from(new Set(concerns.map(c => c.assemblyConstituency)));
   const categories: ConcernCategory[] = [
     'Roads',
     'Water Supply',
@@ -287,7 +287,7 @@ export default function MpDashboard({ profile, token, onLogout, theme = 'light',
       if (filterCategory !== 'All' && c.category !== filterCategory) return false;
       if (filterStatus !== 'All' && c.status !== filterStatus) return false;
       if (filterUrgency !== 'All' && c.priority !== filterUrgency) return false;
-      if (filterWard !== 'All' && c.ward !== filterWard) return false;
+      if (filterAssemblyConstituency !== 'All' && c.assemblyConstituency !== filterAssemblyConstituency) return false;
       return true;
     })
     .sort((a, b) => {
@@ -355,8 +355,8 @@ export default function MpDashboard({ profile, token, onLogout, theme = 'light',
             >
               <Inbox className="h-4.5 w-4.5" />
               Grievance Inbox
-              <span className="bg-indigo-950 text-white text-xs px-2 py-0.5 rounded-full font-mono">
-                {concerns.filter(c => c.status !== 'Resolved' && c.status !== 'Closed').length}
+                <span className="bg-indigo-950 text-white text-xs px-2 py-0.5 rounded-full font-mono">
+                {concerns.filter(c => c.status !== 'Resolved').length}
               </span>
             </button>
             <button
@@ -444,7 +444,7 @@ export default function MpDashboard({ profile, token, onLogout, theme = 'light',
                       </div>
                       <div>
                         <p className="text-xs font-bold text-slate-800 leading-none">{selectedConcern.citizenName}</p>
-                        <p className="text-[10px] text-slate-400 mt-0.5">Locality: {selectedConcern.ward}</p>
+                          <p className="text-[10px] text-slate-400 mt-0.5">Assembly Constituency: {selectedConcern.assemblyConstituency}</p>
                       </div>
                     </div>
                     <div className="space-y-1 text-xs text-slate-600">
@@ -645,14 +645,14 @@ export default function MpDashboard({ profile, token, onLogout, theme = 'light',
                   </select>
                 </div>
                 <div>
-                  <label className="block font-semibold text-slate-500 mb-1">Ward / Locality</label>
+                  <label className="block font-semibold text-slate-500 mb-1">Assembly Constituency</label>
                   <select
-                    value={filterWard}
-                    onChange={(e) => setFilterWard(e.target.value)}
+                    value={filterAssemblyConstituency}
+                    onChange={(e) => setFilterAssemblyConstituency(e.target.value)}
                     className="w-full p-2 bg-slate-50 border border-slate-200 rounded-md text-slate-700 cursor-pointer"
                   >
-                    <option value="All">All Wards</option>
-                    {wards.map(w => <option key={w} value={w}>{w}</option>)}
+                    <option value="All">All Constituencies</option>
+                    {assemblyConstituencies.map(w => <option key={w} value={w}>{w}</option>)}
                   </select>
                 </div>
               </div>
@@ -790,7 +790,7 @@ export default function MpDashboard({ profile, token, onLogout, theme = 'light',
                             </p>
 
                             <div className="pt-1 flex flex-wrap items-center gap-4 text-[10px] font-mono text-slate-500">
-                              <span className="flex items-center gap-1"><MapPin className="h-3 w-3 text-slate-400" /> {concern.ward}</span>
+                              <span className="flex items-center gap-1"><MapPin className="h-3 w-3 text-slate-400" /> {concern.assemblyConstituency}</span>
                               <span className="flex items-center gap-1"><User className="h-3 w-3 text-slate-400" /> By: {concern.citizenName}</span>
                               <span className="bg-slate-50 text-slate-500 border border-slate-150 rounded px-1.5 py-0.5 font-bold">
                                 Priority Score: {priScore.toFixed(1)}
@@ -819,7 +819,7 @@ export default function MpDashboard({ profile, token, onLogout, theme = 'light',
             <div className="bg-white border border-slate-100 rounded-xl p-6 shadow-xs">
               <h2 className="text-2xl font-bold text-slate-900 font-serif mb-2">Constituency Pulse Center</h2>
               <p className="text-slate-600 text-sm">
-                Statistical dashboard tracking grievances, volume patterns, active hot spots, and ward ratios for your constituency.
+                Statistical dashboard tracking grievances, volume patterns, active hot spots, and constituency ratios for your constituency.
               </p>
             </div>
 
@@ -966,14 +966,14 @@ export default function MpDashboard({ profile, token, onLogout, theme = 'light',
 
                 {/* 4. Top Wards Comparative Panel */}
                 <Card className="bg-white p-6 md:col-span-1">
-                  <h4 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-6">Top Hot Spot Wards (Complaint Densities)</h4>
+                  <h4 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-6">Top Hot Spot Constituencies (Complaint Densities)</h4>
                   
-                  {analytics.topWards.length === 0 ? (
+                  {((analytics.topConstituencies && analytics.topConstituencies.length) || (analytics.topWards && analytics.topWards.length)) === 0 ? (
                     <p className="text-xs text-slate-400 italic text-center py-12">No locality stats calculated.</p>
                   ) : (
                     <div className="space-y-5">
-                      {analytics.topWards.map((item: any, idx: number) => {
-                        const total = analytics.topWards.reduce((acc: number, i: any) => acc + i.count, 0) || 1;
+                      {(analytics.topConstituencies || analytics.topWards).map((item: any, idx: number) => {
+                        const total = (analytics.topConstituencies || analytics.topWards).reduce((acc: number, i: any) => acc + i.count, 0) || 1;
                         const percentage = ((item.count / total) * 100).toFixed(1);
 
                         return (
@@ -983,13 +983,13 @@ export default function MpDashboard({ profile, token, onLogout, theme = 'light',
                                 {idx + 1}
                               </span>
                               <div>
-                                <h5 className="text-xs font-bold text-slate-800">{item.ward}</h5>
-                                <p className="text-[10px] text-slate-400 font-mono">Constituency Ward Area</p>
+                                <h5 className="text-xs font-bold text-slate-800">{item.assemblyConstituency || item.ward}</h5>
+                                <p className="text-[10px] text-slate-400 font-mono">Constituency Area</p>
                               </div>
                             </div>
                             <div className="text-right">
                               <span className="text-xs font-bold text-slate-800 font-mono">{item.count} concerns</span>
-                              <span className="text-[9px] text-indigo-700 font-bold block bg-indigo-50 border border-indigo-100 px-1 py-0.2 rounded-sm mt-0.5">{percentage}% of Top Wards</span>
+                              <span className="text-[9px] text-indigo-700 font-bold block bg-indigo-50 border border-indigo-100 px-1 py-0.2 rounded-sm mt-0.5">{percentage}% of Top Constituencies</span>
                             </div>
                           </div>
                         );

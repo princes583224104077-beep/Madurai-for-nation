@@ -6,7 +6,7 @@ interface InteractiveMapProps {
   lang?: 'en' | 'ta';
 }
 
-interface WardDetails {
+interface ConstituencyDetails {
   id: string;
   name: string;
   tamilName: string;
@@ -24,11 +24,11 @@ interface WardDetails {
   }[];
 }
 
-const wardDetailsData: Record<string, WardDetails> = {
+const constituencyDetailsData: Record<string, ConstituencyDetails> = {
   sellur: {
     id: 'sellur',
-    name: 'Ward 12, Sellur',
-    tamilName: 'வார்டு 12, செல்லூர்',
+    name: 'Madurai Central',
+    tamilName: 'மதுரை மத்திய',
     population: '54,000 residents',
     primaryNeed: 'Water Supply & Sewage Canal Desilting',
     activeBudget: '₹4.2 Crores',
@@ -41,8 +41,8 @@ const wardDetailsData: Record<string, WardDetails> = {
   },
   goripalayam: {
     id: 'goripalayam',
-    name: 'Ward 22, Goripalayam',
-    tamilName: 'வார்டு 22, கோரிப்பாளையம்',
+    name: 'Madurai North',
+    tamilName: 'மதுரை வடக்கு',
     population: '62,500 residents',
     primaryNeed: 'Traffic Congestion & Public Safety Infrastructure',
     activeBudget: '₹12.5 Crores',
@@ -55,8 +55,8 @@ const wardDetailsData: Record<string, WardDetails> = {
   },
   kknagar: {
     id: 'kknagar',
-    name: 'Ward 45, K.K. Nagar',
-    tamilName: 'வார்டு 45, கே.கே. நகர்',
+    name: 'Madurai West',
+    tamilName: 'மதுரை மேற்கு',
     population: '48,000 residents',
     primaryNeed: 'Sanitation & Solid Waste Management Systems',
     activeBudget: '₹3.8 Crores',
@@ -68,8 +68,8 @@ const wardDetailsData: Record<string, WardDetails> = {
   },
   simmakkal: {
     id: 'simmakkal',
-    name: 'Ward 3, Simmakkal',
-    tamilName: 'வார்டு 3, சிம்மக்கல்',
+    name: 'Madurai Central',
+    tamilName: 'மதுரை மத்திய',
     population: '70,000 residents',
     primaryNeed: "Women's Safety & Heritage Lighting upgrades",
     activeBudget: '₹9.2 Crores',
@@ -82,8 +82,8 @@ const wardDetailsData: Record<string, WardDetails> = {
   },
   tallakulam: {
     id: 'tallakulam',
-    name: 'Ward 15, Tallakulam',
-    tamilName: 'வார்டு 15, தல்லாகுளம்',
+    name: 'Madurai South',
+    tamilName: 'மதுரை தெற்கு',
     population: '41,000 residents',
     primaryNeed: 'Public Safety & Digital Connectivity schemes',
     activeBudget: '₹5.5 Crores',
@@ -97,14 +97,14 @@ const wardDetailsData: Record<string, WardDetails> = {
 };
 
 export default function InteractiveMap({ theme = 'light', lang = 'en' }: InteractiveMapProps) {
-  const [selectedWard, setSelectedWard] = useState<string>('sellur');
-  const details = wardDetailsData[selectedWard];
+  const [selectedConstituency, setSelectedConstituency] = useState<string>('sellur');
+  const details = constituencyDetailsData[selectedConstituency];
 
   const t = {
     en: {
       mapTitle: 'Interactive Development & Complaint Heat Map',
       mapSubtitle: 'Click on any ward on the visual map of Madurai to view active development projects, budget allocation, completion ratios, and complaint density.',
-      wardName: 'Ward Name',
+      constituencyName: 'Constituency Name',
       population: 'Population',
       primaryNeed: 'Primary Need',
       activeBudget: 'Active Budget Allocation',
@@ -114,12 +114,12 @@ export default function InteractiveMap({ theme = 'light', lang = 'en' }: Interac
       waterProject: 'Water Project',
       hospital: 'Healthcare',
       school: 'Education',
-      projectsHeader: 'Active Ward Projects',
+      projectsHeader: 'Active Constituency Projects',
       heatLevel: 'Grievance Intensity',
       high: 'High Density (Red Zone)',
       medium: 'Medium Density (Orange Zone)',
       low: 'Low Density (Green Zone)',
-      backToMap: 'Click Wards on the Map to view metrics'
+      backToMap: 'Click Constituencies on the Map to view metrics'
     },
     ta: {
       mapTitle: 'ஊடாடும் வளர்ச்சி மற்றும் குறை தீர்க்கும் வரைபடம்',
@@ -174,15 +174,15 @@ export default function InteractiveMap({ theme = 'light', lang = 'en' }: Interac
             
             {/* Sellur (Top-Left) */}
             <g
-              onClick={() => setSelectedWard('sellur')}
-              className={`cursor-pointer transition-all ${selectedWard === 'sellur' ? 'scale-102 filter drop-shadow-md' : 'opacity-85 hover:opacity-100'}`}
+              onClick={() => setSelectedConstituency('sellur')}
+              className={`cursor-pointer transition-all ${selectedConstituency === 'sellur' ? 'scale-102 filter drop-shadow-md' : 'opacity-85 hover:opacity-100'}`}
             >
               <path
                 d="M 50 150 L 150 100 L 220 150 L 150 190 Z"
-                fill={selectedWard === 'sellur' ? '#C89B3C' : '#F59E0B'}
-                fillOpacity={selectedWard === 'sellur' ? '0.25' : '0.1'}
-                stroke={selectedWard === 'sellur' ? '#C89B3C' : '#F59E0B'}
-                strokeWidth={selectedWard === 'sellur' ? '3.5' : '2'}
+                fill={selectedConstituency === 'sellur' ? '#C89B3C' : '#F59E0B'}
+                fillOpacity={selectedConstituency === 'sellur' ? '0.25' : '0.1'}
+                stroke={selectedConstituency === 'sellur' ? '#C89B3C' : '#F59E0B'}
+                strokeWidth={selectedConstituency === 'sellur' ? '3.5' : '2'}
               />
               <circle cx="140" cy="140" r="14" fill="#F59E0B" fillOpacity="0.8" />
               <text x="140" y="144" fill="white" fontSize="10" textAnchor="middle" fontWeight="bold">S</text>
@@ -190,15 +190,15 @@ export default function InteractiveMap({ theme = 'light', lang = 'en' }: Interac
 
             {/* Goripalayam (Top-Right) */}
             <g
-              onClick={() => setSelectedWard('goripalayam')}
-              className={`cursor-pointer transition-all ${selectedWard === 'goripalayam' ? 'scale-102 filter drop-shadow-md' : 'opacity-85 hover:opacity-100'}`}
+              onClick={() => setSelectedConstituency('goripalayam')}
+              className={`cursor-pointer transition-all ${selectedConstituency === 'goripalayam' ? 'scale-102 filter drop-shadow-md' : 'opacity-85 hover:opacity-100'}`}
             >
               <path
                 d="M 220 150 L 150 100 L 260 50 L 330 130 L 250 170 Z"
-                fill={selectedWard === 'goripalayam' ? '#6B1E24' : '#EF4444'}
-                fillOpacity={selectedWard === 'goripalayam' ? '0.25' : '0.1'}
-                stroke={selectedWard === 'goripalayam' ? '#6B1E24' : '#EF4444'}
-                strokeWidth={selectedWard === 'goripalayam' ? '3.5' : '2'}
+                fill={selectedConstituency === 'goripalayam' ? '#6B1E24' : '#EF4444'}
+                fillOpacity={selectedConstituency === 'goripalayam' ? '0.25' : '0.1'}
+                stroke={selectedConstituency === 'goripalayam' ? '#6B1E24' : '#EF4444'}
+                strokeWidth={selectedConstituency === 'goripalayam' ? '3.5' : '2'}
               />
               <circle cx="230" cy="110" r="14" fill="#EF4444" fillOpacity="0.8" />
               <text x="230" y="114" fill="white" fontSize="10" textAnchor="middle" fontWeight="bold">G</text>
@@ -206,15 +206,15 @@ export default function InteractiveMap({ theme = 'light', lang = 'en' }: Interac
 
             {/* Simmakkal (Temple Core Center) */}
             <g
-              onClick={() => setSelectedWard('simmakkal')}
-              className={`cursor-pointer transition-all ${selectedWard === 'simmakkal' ? 'scale-102 filter drop-shadow-md' : 'opacity-85 hover:opacity-100'}`}
+              onClick={() => setSelectedConstituency('simmakkal')}
+              className={`cursor-pointer transition-all ${selectedConstituency === 'simmakkal' ? 'scale-102 filter drop-shadow-md' : 'opacity-85 hover:opacity-100'}`}
             >
               <path
                 d="M 150 190 L 220 150 L 250 170 L 210 260 L 130 240 Z"
-                fill={selectedWard === 'simmakkal' ? '#6B1E24' : '#EF4444'}
-                fillOpacity={selectedWard === 'simmakkal' ? '0.25' : '0.1'}
-                stroke={selectedWard === 'simmakkal' ? '#6B1E24' : '#EF4444'}
-                strokeWidth={selectedWard === 'simmakkal' ? '3.5' : '2'}
+                fill={selectedConstituency === 'simmakkal' ? '#6B1E24' : '#EF4444'}
+                fillOpacity={selectedConstituency === 'simmakkal' ? '0.25' : '0.1'}
+                stroke={selectedConstituency === 'simmakkal' ? '#6B1E24' : '#EF4444'}
+                strokeWidth={selectedConstituency === 'simmakkal' ? '3.5' : '2'}
               />
               <circle cx="190" cy="200" r="14" fill="#EF4444" fillOpacity="0.8" />
               <text x="190" y="204" fill="white" fontSize="10" textAnchor="middle" fontWeight="bold">M</text>
@@ -222,15 +222,15 @@ export default function InteractiveMap({ theme = 'light', lang = 'en' }: Interac
 
             {/* K.K. Nagar (Far Right) */}
             <g
-              onClick={() => setSelectedWard('kknagar')}
-              className={`cursor-pointer transition-all ${selectedWard === 'kknagar' ? 'scale-102 filter drop-shadow-md' : 'opacity-85 hover:opacity-100'}`}
+              onClick={() => setSelectedConstituency('kknagar')}
+              className={`cursor-pointer transition-all ${selectedConstituency === 'kknagar' ? 'scale-102 filter drop-shadow-md' : 'opacity-85 hover:opacity-100'}`}
             >
               <path
                 d="M 250 170 L 330 130 L 380 230 L 290 280 Z"
-                fill={selectedWard === 'kknagar' ? '#0E5C4B' : '#10B981'}
-                fillOpacity={selectedWard === 'kknagar' ? '0.25' : '0.1'}
-                stroke={selectedWard === 'kknagar' ? '#0E5C4B' : '#10B981'}
-                strokeWidth={selectedWard === 'kknagar' ? '3.5' : '2'}
+                fill={selectedConstituency === 'kknagar' ? '#0E5C4B' : '#10B981'}
+                fillOpacity={selectedConstituency === 'kknagar' ? '0.25' : '0.1'}
+                stroke={selectedConstituency === 'kknagar' ? '#0E5C4B' : '#10B981'}
+                strokeWidth={selectedConstituency === 'kknagar' ? '3.5' : '2'}
               />
               <circle cx="310" cy="200" r="14" fill="#10B981" fillOpacity="0.8" />
               <text x="310" y="204" fill="white" fontSize="10" textAnchor="middle" fontWeight="bold">K</text>
@@ -238,15 +238,15 @@ export default function InteractiveMap({ theme = 'light', lang = 'en' }: Interac
 
             {/* Tallakulam (Bottom Center-Left) */}
             <g
-              onClick={() => setSelectedWard('tallakulam')}
-              className={`cursor-pointer transition-all ${selectedWard === 'tallakulam' ? 'scale-102 filter drop-shadow-md' : 'opacity-85 hover:opacity-100'}`}
+              onClick={() => setSelectedConstituency('tallakulam')}
+              className={`cursor-pointer transition-all ${selectedConstituency === 'tallakulam' ? 'scale-102 filter drop-shadow-md' : 'opacity-85 hover:opacity-100'}`}
             >
               <path
                 d="M 130 240 L 210 260 L 290 280 L 250 360 L 100 320 Z"
-                fill={selectedWard === 'tallakulam' ? '#0E5C4B' : '#10B981'}
-                fillOpacity={selectedWard === 'tallakulam' ? '0.25' : '0.1'}
-                stroke={selectedWard === 'tallakulam' ? '#0E5C4B' : '#10B981'}
-                strokeWidth={selectedWard === 'tallakulam' ? '3.5' : '2'}
+                fill={selectedConstituency === 'tallakulam' ? '#0E5C4B' : '#10B981'}
+                fillOpacity={selectedConstituency === 'tallakulam' ? '0.25' : '0.1'}
+                stroke={selectedConstituency === 'tallakulam' ? '#0E5C4B' : '#10B981'}
+                strokeWidth={selectedConstituency === 'tallakulam' ? '3.5' : '2'}
               />
               <circle cx="190" cy="300" r="14" fill="#10B981" fillOpacity="0.8" />
               <text x="190" y="304" fill="white" fontSize="10" textAnchor="middle" fontWeight="bold">T</text>
@@ -264,10 +264,10 @@ export default function InteractiveMap({ theme = 'light', lang = 'en' }: Interac
         {/* Live Project Panel Details Column */}
         <div className="lg:col-span-7 flex flex-col justify-between space-y-4">
           <div className="space-y-4 text-left">
-            {/* Ward Title Card */}
+            {/* Constituency Title Card */}
             <div className={`p-4 rounded-xl border ${theme === 'dark' ? 'bg-stone-900 border-stone-800' : 'bg-[#FBF9F4] border-[#C89B3C]/20'} flex justify-between items-start`}>
               <div className="space-y-1">
-                <span className="text-[10px] font-mono text-stone-500 uppercase tracking-widest block">{t.wardName}</span>
+                <span className="text-[10px] font-mono text-stone-500 uppercase tracking-widest block">{t.constituencyName}</span>
                 <h4 className="text-base sm:text-lg font-serif font-black text-[#0E5C4B] dark:text-teal-400">
                   {lang === 'ta' ? details.tamilName : details.name}
                 </h4>

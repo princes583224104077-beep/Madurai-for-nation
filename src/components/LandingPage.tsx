@@ -80,76 +80,90 @@ export const GopuramIcon = ({ className = "h-5 w-5" }: { className?: string }) =
   );
 };
 
-export const maduraiWardsData = [
+export const maduraiConstituenciesData = [
   {
-    id: 'sellur',
-    name: 'Ward 12, Sellur',
+    id: 'melur',
+    name: 'Melur',
     population: '54,000 residents',
-    vibe: 'Dense residential neighborhood bounded by the historic Sellur Tank. Famous for traditional handlooms, robust trade, and resilient community spirits.',
-    primaryNeed: 'Water Supply & Sewage Canal Desilting',
+    vibe: 'Semi-urban and peri-urban mix with active agricultural hinterlands and local markets.',
+    primaryNeed: 'Rural road upgrades & irrigation support',
     totalGrievances: 42,
     resolvedGrievances: 39,
     activeBudget: '₹4.2 Crores',
-    activeAiPilot: 'Sellur Aquifer & Pipeline Predictive IoT Leak Detector',
-    landmark: 'Sellur Kulam (Ancient Water Reservoir)',
+    activeAiPilot: 'Rural Infrastructure Monitoring Pilot',
+    landmark: 'Melur Market & Temple Cluster',
     color: 'teal',
     colorClasses: { bg: 'bg-teal-50 border-teal-200/80', text: 'text-teal-900', pill: 'bg-teal-100 text-teal-800' }
   },
   {
-    id: 'goripalayam',
-    name: 'Ward 22, Goripalayam',
+    id: 'madurai-east',
+    name: 'Madurai East',
     population: '62,500 residents',
-    vibe: 'Bustling transit gateway connecting northern Madurai. Home to landmark medical facilities, heavy trade corridors, and high commuter footfall.',
-    primaryNeed: 'Traffic Congestion & Public Safety infrastructure',
+    vibe: 'Eastern corridor of Madurai with mixed residential and commercial nodes.',
+    primaryNeed: 'Traffic management & public safety',
     totalGrievances: 58,
     resolvedGrievances: 51,
     activeBudget: '₹12.5 Crores',
-    activeAiPilot: 'Goripalayam Junction Traffic Density Signals Optimizer',
-    landmark: 'Goripalayam Dargah & Medical Junction',
+    activeAiPilot: 'Eastern Junction Traffic Optimization',
+    landmark: 'Madurai East Transit Hub',
     color: 'red',
     colorClasses: { bg: 'bg-rose-50 border-rose-200/80', text: 'text-rose-900', pill: 'bg-rose-100 text-rose-800' }
   },
   {
-    id: 'kknagar',
-    name: 'Ward 45, K.K. Nagar',
+    id: 'madurai-north',
+    name: 'Madurai North',
     population: '48,000 residents',
-    vibe: 'Planned residential sector with spacious avenues, rich parks, local colleges, and expanding commercial high streets.',
-    primaryNeed: 'Sanitation & Solid Waste Management systems',
+    vibe: 'Residential neighborhoods with colleges and growing commercial streets.',
+    primaryNeed: 'Sanitation & waste management',
     totalGrievances: 29,
     resolvedGrievances: 27,
     activeBudget: '₹3.8 Crores',
-    activeAiPilot: 'Bento-style Smart Garbage Compaction Sensors',
-    landmark: 'K.K. Nagar Walkers Park & Arch',
+    activeAiPilot: 'Smart Waste Management Sensors',
+    landmark: 'Northside Educational Cluster',
     color: 'emerald',
     colorClasses: { bg: 'bg-emerald-50 border-emerald-200/80', text: 'text-emerald-900', pill: 'bg-emerald-100 text-emerald-800' }
   },
   {
-    id: 'simmakkal',
-    name: 'Ward 3, Simmakkal',
+    id: 'madurai-south',
+    name: 'Madurai South',
     population: '70,000 residents',
-    vibe: 'Historic core near Meenakshi Amman Temple. Densely packed with historic lanes, bustling markets, and heritage tourist lanes.',
-    primaryNeed: "Women's Safety & Heritage Lighting upgrades",
+    vibe: 'Historic and commercial southern wards around central temple precincts.',
+    primaryNeed: "Heritage lighting & women's safety improvements",
     totalGrievances: 65,
     resolvedGrievances: 61,
     activeBudget: '₹9.2 Crores',
-    activeAiPilot: 'West Tower Smart Corridor Safety Nodes & CCTV Hubs',
-    landmark: 'Old Simmakkal Fruit Market & Temple Transit',
+    activeAiPilot: 'Heritage Corridor Safety Nodes',
+    landmark: 'Meenakshi Precinct South',
     color: 'amber',
     colorClasses: { bg: 'bg-amber-50 border-amber-200/80', text: 'text-amber-900', pill: 'bg-amber-100 text-amber-800' }
   },
   {
-    id: 'tallakulam',
-    name: 'Ward 15, Tallakulam',
+    id: 'madurai-central',
+    name: 'Madurai Central',
     population: '41,000 residents',
-    vibe: 'Institutional heart of Madurai featuring government offices, historic colleges, and leafy residential layout grounds.',
-    primaryNeed: 'Public Safety & Digital Connectivity schemes',
+    vibe: 'Central administrative and commercial district.',
+    primaryNeed: 'Digital services & civic access points',
     totalGrievances: 23,
     resolvedGrievances: 22,
     activeBudget: '₹5.5 Crores',
-    activeAiPilot: 'Sangam Verse Conversational AI Information Kiosks',
-    landmark: 'Outpost Tallakulam Temple Ground Area',
+    activeAiPilot: 'Central Service Kiosks',
+    landmark: 'Town Hall & Central Market',
     color: 'indigo',
     colorClasses: { bg: 'bg-indigo-50 border-indigo-200/80', text: 'text-indigo-900', pill: 'bg-indigo-100 text-indigo-800' }
+  },
+  {
+    id: 'madurai-west',
+    name: 'Madurai West',
+    population: '46,000 residents',
+    vibe: 'Western residential belts and peri-urban communities.',
+    primaryNeed: 'Public transport & water supply reliability',
+    totalGrievances: 38,
+    resolvedGrievances: 34,
+    activeBudget: '₹6.2 Crores',
+    activeAiPilot: 'Western Transit Corridor Pilot',
+    landmark: 'West Gate Market',
+    color: 'slate',
+    colorClasses: { bg: 'bg-slate-50 border-slate-200/80', text: 'text-slate-900', pill: 'bg-slate-100 text-slate-800' }
   }
 ];
 
@@ -167,12 +181,12 @@ export default function LandingPage({ onEnterAuth, theme, setTheme, language, se
   const [mpProfile, setMpProfile] = useState<MPProfile | null>(null);
   const [loadingMp, setLoadingMp] = useState(true);
 
-  // Ward Selector state for active filters
-  const [selectedWardId, setSelectedWardId] = useState('sellur');
+  // Constituency selector state for active filters
+  const [selectedConstituencyId, setSelectedConstituencyId] = useState('madurai-central');
 
   // Active view workflow
-  // 'landing' | 'profile' | 'submit' | 'track'
-  const [currentView, setCurrentView] = useState<'landing' | 'profile' | 'submit' | 'track'>('landing');
+  // 'landing' | 'profile' | 'submit'
+  const [currentView, setCurrentView] = useState<'landing' | 'profile' | 'submit'>('landing');
   const [trackInitialId, setTrackInitialId] = useState('');
   const [quickTrackId, setQuickTrackId] = useState('');
 
@@ -215,8 +229,8 @@ export default function LandingPage({ onEnterAuth, theme, setTheme, language, se
       {
         title: 'Aquifer & Pipeline Leakage Predictive IoT Model',
         developer: 'Madhavan V., Smart Grid Engineer',
-        pitch: 'Predictive water resource models charting Sellur aquifer flow rates and Ward 12 pipeline pressure sensors to predict and flags micro-leakages before sewage mixture occurs.',
-        support: 'Corporation Water Flow Sensor API Access & Pilot Ward Testing',
+        pitch: 'Predictive water resource models charting Sellur aquifer flow rates and constituency pipeline pressure sensors to predict and flags micro-leakages before sewage mixture occurs.',
+        support: 'Corporation Water Flow Sensor API Access & Pilot Constituency Testing',
         date: '3 days ago'
       }
     ];
@@ -288,8 +302,9 @@ export default function LandingPage({ onEnterAuth, theme, setTheme, language, se
   };
 
   const handleOpenTrack = (id: string = '') => {
+    // Route tracking access through the Raise Concern page
     setTrackInitialId(id);
-    setCurrentView('track');
+    setCurrentView('submit');
   };
 
   const handleQuickTrackSubmit = (e: React.FormEvent) => {
@@ -367,7 +382,7 @@ export default function LandingPage({ onEnterAuth, theme, setTheme, language, se
   const successStories = [
     {
       title: 'Streetlight Upgrades near West Tower Entry',
-      ward: 'Ward 3, Simmakkal',
+      assemblyConstituency: 'Madurai Central',
       category: "Women's Safety",
       description: 'Citizen filed a complaint (ID: JV-MDU-103) about dark zones near West Tower of Meenakshi Temple. MP Venkatesan directed municipal lighting officers. 15 energy-efficient LED posts and 4 CCTV hubs were commissioned within 4 days.',
       citizenReview: 'The West Tower path is fully illuminated now. Our family feels incredibly safe during evening temple walks. Thank you S. Venkatesan MP for the immediate intervention!',
@@ -375,8 +390,8 @@ export default function LandingPage({ onEnterAuth, theme, setTheme, language, se
       rating: 5
     },
     {
-      title: 'Sellur Ward 12 Drinking Water Leakage Rectification',
-      ward: 'Ward 12, Sellur',
+      title: 'Sellur Drinking Water Leakage Rectification',
+      assemblyConstituency: 'Madurai Central',
       category: 'Water Supply',
       description: 'Underground drinking water main pipeline had a severe clog and sewage mixture. Following public report (ID: JV-MDU-101), MP S. Venkatesan pushed corporation engineers to deploy suction trucks. Replaced 80 meters of damaged water lines.',
       citizenReview: 'Water pressure is excellent now, and the purity is perfect. This issue was pending for weeks, resolved in just 48 hours after posting here.',
@@ -384,8 +399,8 @@ export default function LandingPage({ onEnterAuth, theme, setTheme, language, se
       rating: 5
     },
     {
-      title: 'Goripalayam Main Junction Drainage Clog Cleared',
-      ward: 'Ward 22, Goripalayam',
+      title: 'Goripalayam Drainage Clog Cleared',
+      assemblyConstituency: 'Madurai North',
       category: 'Sanitation',
       description: 'Severe waterlogging during brief spells. Citizen submitted complaint (ID: JV-MDU-104) regarding storm water drains filled with plastic. MP team initiated solid waste squad triage. Deep desilting completed.',
       citizenReview: 'Silt and garbage cleared. Drains are draining beautifully. Extremely swift response from the MP grievance cell.',
@@ -464,15 +479,8 @@ export default function LandingPage({ onEnterAuth, theme, setTheme, language, se
         .border-temple-gold { border-color: #C89B3C; }
       `}</style>
 
-      {/* 2. Indian Tricolor Heritage Border */}
-      <div className="h-1.5 flex w-full sticky top-0 z-50">
-        <div className="w-1/3 bg-[#FF9933]"></div>
-        <div className="w-1/3 bg-white"></div>
-        <div className="w-1/3 bg-[#138808]"></div>
-      </div>
-
       {/* 3. Glassmorphism Main Navigation Header */}
-      <header className={`sticky top-1.5 z-40 w-full border-b backdrop-blur-md shadow-xs transition-all ${theme === 'dark' ? 'bg-stone-900/95 border-stone-800 text-stone-100' : 'bg-white/95 border-stone-200/50 text-stone-900'}`}>
+      <header className={`sticky top-1.5 z-40 w-full border border-white/70 bg-white/80 backdrop-blur-2xl shadow-[0_18px_60px_-30px_rgba(15,23,42,0.18)] transition-all duration-300 ${theme === 'dark' ? 'bg-slate-950/90 border-slate-800 text-slate-100' : 'text-slate-900'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-18">
             {/* Logo */}
@@ -482,7 +490,7 @@ export default function LandingPage({ onEnterAuth, theme, setTheme, language, se
                   setCurrentView('landing');
                   setActiveTab('overview');
                 }}
-                className="p-2 bg-[#0E5C4B] text-white rounded-xl shadow-xs hover:bg-[#0E5C4B]/90 transition-all cursor-pointer flex items-center justify-center border border-[#C89B3C]/40"
+                className="p-3 bg-[#0F6B4D] text-white rounded-[18px] shadow-[0_16px_45px_-28px_rgba(15,107,77,0.45)] transition-all hover:bg-[#0E5C4B] cursor-pointer flex items-center justify-center border border-[#C89B3C]/30"
               >
                 <GopuramIcon className="h-5 w-5 text-[#C89B3C]" />
               </button>
@@ -492,12 +500,13 @@ export default function LandingPage({ onEnterAuth, theme, setTheme, language, se
                     setCurrentView('landing');
                     setActiveTab('overview');
                   }}
-                  className="text-xl font-extrabold font-sans text-[#0E5C4B] tracking-tight hover:opacity-90 block"
+                  className="text-xl font-extrabold font-heading tracking-tight hover:opacity-90 block"
+                  style={{ color: '#0F6B4D' }}
                 >
-                  Madurai<span className="text-[#6B1E24]">Connect</span>
+                  Madurai<span className="text-[#C89B3C]">Connect</span>
                 </button>
-                <span className="text-[9px] text-[#C89B3C] font-mono font-bold uppercase tracking-widest block -mt-0.5">
-                  Lok Sabha Constituency Portal
+                <span className="text-[10px] text-[#475569] font-mono font-semibold uppercase tracking-[0.32em] block -mt-0.5">
+                  Premium Civic Tech Portal
                 </span>
               </div>
             </div>
@@ -553,16 +562,7 @@ export default function LandingPage({ onEnterAuth, theme, setTheme, language, se
               >
                 Raise Concern
               </button>
-              <button
-                onClick={() => handleOpenTrack()}
-                className={`text-xs font-bold font-sans tracking-wide transition-all cursor-pointer ${
-                  currentView === 'track'
-                    ? 'text-[#0E5C4B] border-b-2 border-[#0E5C4B] pb-1'
-                    : 'text-stone-600 hover:text-[#0E5C4B]'
-                }`}
-              >
-                Track Complaint
-              </button>
+              {/* Track Complaint moved inside Raise Concern page */}
               <button
                 onClick={() => {
                   setCurrentView('landing');
@@ -672,15 +672,7 @@ export default function LandingPage({ onEnterAuth, theme, setTheme, language, se
             >
               Raise Concern
             </button>
-            <button
-              onClick={() => {
-                handleOpenTrack();
-                setMobileMenuOpen(false);
-              }}
-              className="w-full text-left px-3 py-2 text-xs font-bold text-stone-700 hover:bg-[#0E5C4B]/5 hover:text-[#0E5C4B] rounded-lg block"
-            >
-              Track Complaint
-            </button>
+            {/* Track Complaint moved inside Raise Concern page */}
             <button
               onClick={() => {
                 setCurrentView('landing');
@@ -720,15 +712,28 @@ export default function LandingPage({ onEnterAuth, theme, setTheme, language, se
         {/* VIEW A: PUBLIC FORM SUBMISSION */}
         {currentView === 'submit' && (
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-            <PublicSubmitConcern
-              onBack={() => {
-                setCurrentView('landing');
-                setActiveTab('overview');
-              }}
-              onSuccess={(id) => {
-                // Done inside subcomponent
-              }}
-            />
+            <div className="space-y-8">
+              <PublicSubmitConcern
+                onBack={() => {
+                  setCurrentView('landing');
+                  setActiveTab('overview');
+                }}
+                onSuccess={(id) => {
+                  // Done inside subcomponent
+                }}
+              />
+
+              {/* Embedded Track Complaint section: reuse existing ConcernTracker component */}
+              <div className="max-w-2xl mx-auto">
+                <ConcernTracker
+                  initialId={trackInitialId}
+                  onBack={() => {
+                    setCurrentView('landing');
+                    setActiveTab('overview');
+                  }}
+                />
+              </div>
+            </div>
           </div>
         )}
 
@@ -746,18 +751,7 @@ export default function LandingPage({ onEnterAuth, theme, setTheme, language, se
           </div>
         )}
 
-        {/* VIEW C: CONCERN TRACKER */}
-        {currentView === 'track' && (
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-            <ConcernTracker
-              initialId={trackInitialId}
-              onBack={() => {
-                setCurrentView('landing');
-                setActiveTab('overview');
-              }}
-            />
-          </div>
-        )}
+        {/* Standalone TRACK view removed; tracking is embedded inside the Raise Concern view below. */}
 
         {/* VIEW D: MADURAI DEDICATED HOME PAGE */}
         {currentView === 'landing' && (
@@ -773,7 +767,7 @@ export default function LandingPage({ onEnterAuth, theme, setTheme, language, se
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                   
                   {/* Hero Left Column */}
-                  <div className="lg:col-span-7 space-y-6 text-left">
+                  <div className="lg:col-span-12 space-y-6 text-left">
                     {/* Small Official badge */}
                     <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full border shadow-3xs ${theme === 'dark' ? 'bg-stone-950 border-stone-800' : 'bg-[#FBF9F4] border-[#C89B3C]/30'}`}>
                       <span className="text-xs">🇮🇳</span>
@@ -841,53 +835,10 @@ export default function LandingPage({ onEnterAuth, theme, setTheme, language, se
                         <User className="h-4 w-4" /> {t.viewProfile}
                       </button>
                     </div>
+
                   </div>
 
-                  {/* Hero Right Column with stunning Temple Line Art & floating effect */}
-                  <div className="lg:col-span-5 flex flex-col justify-center items-center">
-                    <div className="relative w-full max-w-sm bg-[#FBF9F4] border-2 border-[#C89B3C]/30 p-4.5 rounded-2xl shadow-sm animate-float">
-                      
-                      {/* Background community elements/tint styling */}
-                      <div className="absolute inset-0 bg-radial from-transparent to-[#0E5C4B]/3 pointer-events-none" />
-
-                      {/* Header in image card */}
-                      <div className="flex justify-between items-center border-b border-[#C89B3C]/20 pb-3 mb-3.5">
-                        <span className="text-[10px] font-mono text-[#0E5C4B] font-bold tracking-widest uppercase">
-                          Heritage Architectural Line Art
-                        </span>
-                        <span className="px-2 py-0.5 text-[8px] font-mono font-bold bg-[#6B1E24]/10 text-[#6B1E24] border border-[#6B1E24]/20 rounded uppercase">
-                          Vibrant Madurai
-                        </span>
-                      </div>
-
-                      {/* Line Art Temple Image */}
-                      <div className="relative rounded-xl overflow-hidden border border-stone-200/80 bg-white shadow-2xs group">
-                        <img
-                          src="/src/assets/images/madurai_gopuram_minimal_1783327375532.jpg"
-                          alt="Madurai Meenakshi Temple Gopuram Sketch"
-                          className="w-full h-auto object-contain max-h-[380px] p-2 transition-transform duration-500 group-hover:scale-102"
-                          referrerPolicy="no-referrer"
-                        />
-                        <div className="absolute bottom-2.5 left-2.5 right-2.5 bg-stone-900/80 backdrop-blur-xs text-[8px] font-mono text-white px-3 py-1 rounded-md border border-white/10 flex justify-between items-center">
-                          <span className="uppercase tracking-wider">Meenakshi Temple Gopuram</span>
-                          <span className="text-[#C89B3C] font-semibold">Gold Accent Sketch</span>
-                        </div>
-                      </div>
-
-                      {/* Ancient pillars & skyline references */}
-                      <div className="grid grid-cols-2 gap-2 mt-3">
-                        <div className="bg-white border border-stone-200/70 rounded-lg p-2 flex items-center gap-1.5">
-                          <span className="h-1.5 w-1.5 rounded-full bg-[#0E5C4B]" />
-                          <span className="text-[9px] font-medium text-stone-500 font-sans">Vaigai River Blueprints</span>
-                        </div>
-                        <div className="bg-white border border-stone-200/70 rounded-lg p-2 flex items-center gap-1.5">
-                          <span className="h-1.5 w-1.5 rounded-full bg-[#6B1E24]" />
-                          <span className="text-[9px] font-medium text-stone-500 font-sans">Assembly Hall Sketch</span>
-                        </div>
-                      </div>
-
-                    </div>
-                  </div>
+                  {/* Hero Right Image Card removed */}
 
                 </div>
               </div>
@@ -994,10 +945,10 @@ export default function LandingPage({ onEnterAuth, theme, setTheme, language, se
                       <Users className="h-4.5 w-4.5 text-[#C89B3C]" />
                     </div>
                     <span className={`block text-2xl sm:text-3xl font-mono font-black tracking-tight ${theme === 'dark' ? 'text-stone-100' : 'text-[#0E5C4B]'}`}>
-                      15,000+
+                      1,00,000+
                     </span>
                     <span className="block text-[10px] font-bold text-stone-500 uppercase tracking-wider mt-1.5">
-                      Citizens Registered
+                      Citizens Interacted
                     </span>
                   </div>
 
@@ -1007,7 +958,7 @@ export default function LandingPage({ onEnterAuth, theme, setTheme, language, se
                       <FileText className="h-4.5 w-4.5 text-red-400" />
                     </div>
                     <span className={`block text-2xl sm:text-3xl font-mono font-black tracking-tight ${theme === 'dark' ? 'text-stone-100' : 'text-stone-900'}`}>
-                      3,450
+                      ~10,000
                     </span>
                     <span className="block text-[10px] font-bold text-stone-500 uppercase tracking-wider mt-1.5">
                       Concerns Submitted
@@ -1020,7 +971,7 @@ export default function LandingPage({ onEnterAuth, theme, setTheme, language, se
                       <CheckCircle2 className="h-4.5 w-4.5" />
                     </div>
                     <span className="block text-2xl sm:text-3xl font-mono font-black text-emerald-500 tracking-tight">
-                      2,980
+                      {'>5,000'}
                     </span>
                     <span className="block text-[10px] font-bold text-stone-500 uppercase tracking-wider mt-1.5">
                       Issues Resolved
@@ -1033,7 +984,7 @@ export default function LandingPage({ onEnterAuth, theme, setTheme, language, se
                       <Building className="h-4.5 w-4.5 text-[#C89B3C]" />
                     </div>
                     <span className={`block text-2xl sm:text-3xl font-mono font-black tracking-tight ${theme === 'dark' ? 'text-[#C89B3C]' : 'text-[#6B1E24]'}`}>
-                      125
+                      24
                     </span>
                     <span className="block text-[10px] font-bold text-stone-500 uppercase tracking-wider mt-1.5">
                       Development Projects
@@ -1221,7 +1172,7 @@ export default function LandingPage({ onEnterAuth, theme, setTheme, language, se
                         {successStories.slice(0, 2).map((st, idx) => (
                           <div key={idx} className={`border rounded-xl p-4 space-y-3 shadow-2xs transition-all ${theme === 'dark' ? 'bg-stone-900 border-stone-850 text-stone-100' : 'bg-white border-stone-200 text-stone-900'}`}>
                             <div className="flex justify-between items-center">
-                              <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded ${theme === 'dark' ? 'text-red-350 bg-red-950/40 border border-red-900/50' : 'text-red-800 bg-red-50 border border-red-100'}`}>{st.ward}</span>
+                              <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded ${theme === 'dark' ? 'text-red-350 bg-red-950/40 border border-red-900/50' : 'text-red-800 bg-red-50 border border-red-100'}`}>{st.assemblyConstituency}</span>
                               <div className="flex items-center gap-0.5 text-amber-500">
                                 {[...Array(st.rating)].map((_, i) => (
                                   <Star key={i} className="h-3 w-3 fill-amber-500" />
@@ -1526,7 +1477,7 @@ export default function LandingPage({ onEnterAuth, theme, setTheme, language, se
                       <div key={idx} className={`border rounded-xl shadow-2xs p-6 hover:shadow-md transition-all duration-200 space-y-4 ${theme === 'dark' ? 'bg-stone-900 border-stone-850 text-stone-100' : 'bg-white border-stone-200 text-stone-900'}`}>
                         <div className={`flex justify-between items-center flex-wrap gap-2 border-b pb-3 ${theme === 'dark' ? 'border-stone-800' : 'border-stone-100'}`}>
                           <div className="flex items-center gap-2">
-                            <span className="text-[10px] font-mono font-bold text-red-800 bg-red-50 border border-red-100 px-2 py-0.5 rounded">{story.ward}</span>
+                            <span className="text-[10px] font-mono font-bold text-red-800 bg-red-50 border border-red-100 px-2 py-0.5 rounded">{story.assemblyConstituency}</span>
                             <span className="text-[10px] font-mono text-stone-400">Category: {story.category}</span>
                           </div>
                           <span className="px-2.5 py-0.5 text-[9px] font-mono font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 uppercase tracking-wider rounded">
@@ -1616,20 +1567,6 @@ export default function LandingPage({ onEnterAuth, theme, setTheme, language, se
                       </div>
                     </div>
 
-                    {/* Right side Temple drawing */}
-                    <div className="lg:col-span-5 flex justify-center items-center">
-                      <div className={`relative w-full max-w-xs sm:max-w-sm rounded-xl overflow-hidden border shadow-2xs hover:scale-101 transition-transform duration-300 ${theme === 'dark' ? 'border-stone-850 bg-stone-950' : 'border-stone-100 bg-white'}`}>
-                        <img
-                          src="/src/assets/images/madurai_gopuram_minimal_1783327375532.jpg"
-                          alt="Madurai Gopuram Minimal Sketch"
-                          className="w-full h-auto object-contain max-h-[380px] sm:max-h-[460px] p-2"
-                          referrerPolicy="no-referrer"
-                        />
-                        <div className="absolute bottom-2.5 right-2.5 bg-stone-900/80 backdrop-blur-xs text-[8px] font-mono text-white px-2 py-0.5 rounded border border-white/10 uppercase tracking-widest font-semibold">
-                          Gopuram Vector Architectural Sketch
-                        </div>
-                      </div>
-                    </div>
                   </div>
 
                   {/* SECTION 2: NATIVE ALUMNI CONNECT BANNER (Screenshot 1 faithful) */}

@@ -23,9 +23,18 @@ export default function CitizenDashboard({ profile, token, onLogout, theme = 'li
   // New concern form fields
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [ward, setWard] = useState(profile.ward || '');
+  const [assemblyConstituency, setAssemblyConstituency] = useState(profile.assemblyConstituency || '');
   const [attachmentNote, setAttachmentNote] = useState('');
   const [error, setError] = useState<string | null>(null);
+
+  const assemblyConstituencies = [
+    'Melur',
+    'Madurai East',
+    'Madurai North',
+    'Madurai South',
+    'Madurai Central',
+    'Madurai West'
+  ];
 
   // Fetch concerns
   const fetchConcerns = async () => {
@@ -95,7 +104,7 @@ export default function CitizenDashboard({ profile, token, onLogout, theme = 'li
         body: JSON.stringify({
           title,
           description,
-          ward,
+          assemblyConstituency,
           constituency: profile.constituency,
           attachmentNote,
         }),
@@ -148,7 +157,7 @@ export default function CitizenDashboard({ profile, token, onLogout, theme = 'li
             <div className="flex items-center gap-4">
               <div className="text-right hidden sm:block">
                 <p className="text-sm font-semibold text-slate-900">{profile.name}</p>
-                <p className="text-xs text-slate-500">{profile.ward} · {profile.constituency}</p>
+                <p className="text-xs text-slate-500">{profile.assemblyConstituency} · {profile.constituency}</p>
               </div>
               <button
                 onClick={onLogout}
@@ -316,7 +325,7 @@ export default function CitizenDashboard({ profile, token, onLogout, theme = 'li
                 <div className="flex items-center gap-4 mt-4 text-xs text-slate-500 font-mono">
                   <span className="flex items-center gap-1.5">
                     <MapPin className="h-3.5 w-3.5 text-indigo-600" />
-                    Locality: {profile.ward}
+                    Assembly Constituency: {profile.assemblyConstituency}
                   </span>
                   <span>Constituency: <strong className="text-indigo-950">{profile.constituency}</strong></span>
                 </div>
@@ -373,7 +382,7 @@ export default function CitizenDashboard({ profile, token, onLogout, theme = 'li
                             {concern.description}
                           </p>
                           <div className="pt-2 flex items-center gap-2 text-[10px] font-mono text-slate-500">
-                            <MapPin className="h-3 w-3 text-slate-400" /> {concern.ward}
+                            <MapPin className="h-3 w-3 text-slate-400" /> {concern.assemblyConstituency}
                           </div>
                         </div>
 
@@ -482,26 +491,20 @@ export default function CitizenDashboard({ profile, token, onLogout, theme = 'li
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="concern-ward" className="block text-sm font-medium text-slate-700 mb-1.5">
-                      Ward / Locality in Madurai <span className="text-rose-500">*</span>
-                    </label>
-                    <select
-                      id="concern-ward"
-                      value={ward}
-                      onChange={(e) => setWard(e.target.value)}
-                      className="w-full px-3.5 py-2.5 bg-slate-50/50 border border-slate-200 rounded-lg text-slate-800 text-sm focus:outline-hidden focus:border-teal-700 focus:bg-white transition-all cursor-pointer font-medium"
-                    >
-                      <option value="Ward 12, Sellur">Ward 12, Sellur</option>
-                      <option value="Ward 22, Goripalayam">Ward 22, Goripalayam</option>
-                      <option value="Ward 45, K.K. Nagar">Ward 45, K.K. Nagar</option>
-                      <option value="Ward 58, Madurai East">Ward 58, Madurai East</option>
-                      <option value="Ward 3, Simmakkal">Ward 3, Simmakkal</option>
-                      <option value="Ward 15, Tallakulam">Ward 15, Tallakulam</option>
-                      <option value="Ward 8, Anna Nagar">Ward 8, Anna Nagar</option>
-                      <option value="Ward 25, Arapalayam">Ward 25, Arapalayam</option>
-                      <option value="Ward 32, Kalavasal">Ward 32, Kalavasal</option>
-                      <option value="Ward 50, Madurai South">Ward 50, Madurai South</option>
-                    </select>
+                    <label htmlFor="concern-assembly-constituency" className="block text-sm font-medium text-slate-700 mb-1.5">
+                        Assembly Constituency <span className="text-rose-500">*</span>
+                      </label>
+                      <select
+                        id="concern-assembly-constituency"
+                        value={assemblyConstituency}
+                        onChange={(e) => setAssemblyConstituency(e.target.value)}
+                        className="w-full px-3.5 py-2.5 bg-slate-50/50 border border-slate-200 rounded-lg text-slate-800 text-sm focus:outline-hidden focus:border-teal-700 focus:bg-white transition-all cursor-pointer font-medium"
+                      >
+                        <option value="">Select Assembly Constituency</option>
+                        {assemblyConstituencies.map(c => (
+                          <option key={c} value={c}>{c}</option>
+                        ))}
+                      </select>
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-slate-700 mb-1.5">

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Meenakshi Amman Temple East Rajagopuram - ink-style vector line art
+  Original, hand-crafted vector approximation for use as a black-and-white illustration.
+  File: meenakshi_rajagopuram_ink.svg
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1400">
+  <defs>
+    <style type="text/css"><![CDATA[
+      .st0{fill:none;stroke:#000;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+      .st1{fill:none;stroke:#000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+      .st2{fill:#fff}
+    ]]></style>
+  </defs>
+
+  <rect width="1200" height="1400" fill="white"/>
+
+  <!-- Base plinth and entrance arch -->
+  <g id="base">
+    <rect x="140" y="1180" width="920" height="40" class="st2"/>
+    <path class="st0" d="M160 1160h880v60H160z" />
+
+    <path class="st0" d="M300 1160v-80s20-14 80-14 80 14 80 14v80"/>
+    <path class="st0" d="M520 1160v-80s20-14 80-14 80 14 80 14v80"/>
+    <path class="st1" d="M300 1080c40-40 120-40 160 0"/>
+    <path class="st1" d="M520 1080c40-40 120-40 160 0"/>
+
+    <!-- Entrance arch -->
+    <path class="st0" d="M430 1160c0-40 40-80 140-80s140 40 140 80"/>
+    <path class="st1" d="M470 1110c30-20 90-20 130 0"/>
+  </g>
+
+  <!-- Tiered tower: simplified but detailed tiers -->
+  <g id="tiers" transform="translate(0,-40)">
+    <!-- Tier 1 (largest) -->
+    <g id="tier1">
+      <path class="st0" d="M120 1020h960v80H120z"/>
+      <path class="st1" d="M180 1020c100-60 860-60 940 0"/>
+      <g>
+        <path class="st0" d="M240 1020v-40c120-20 720-20 840 0v40"/>
+        <path class="st1" d="M300 1000c110-48 700-48 800 0"/>
+      </g>
+      <!-- small sculptural niches along tier 1 -->
+      <g class="st1">
+        <path d="M220 1000v-24"/>
+        <path d="M280 1000v-28"/>
+        <path d="M340 1000v-30"/>
+        <path d="M400 1000v-34"/>
+        <path d="M460 1000v-36"/>
+        <path d="M540 1000v-38"/>
+        <path d="M620 1000v-38"/>
+        <path d="M700 1000v-36"/>
+        <path d="M780 1000v-34"/>
+        <path d="M860 1000v-30"/>
+        <path d="M940 1000v-28"/>
+        <path d="M1000 1000v-24"/>
+      </g>
+    </g>
+
+    <!-- Tier 2 -->
+    <g id="tier2" transform="translate(0,-110)">
+      <path class="st0" d="M200 860h800v60H200z"/>
+      <path class="st1" d="M260 860c80-48 640-48 720 0"/>
+      <g class="st1">
+        <path d="M260 860v-30"/>
+        <path d="M320 860v-36"/>
+        <path d="M380 860v-40"/>
+        <path d="M440 860v-44"/>
+        <path d="M500 860v-48"/>
+        <path d="M580 860v-48"/>
+        <path d="M660 860v-44"/>
+        <path d="M740 860v-40"/>
+        <path d="M820 860v-36"/>
+        <path d="M880 860v-30"/>
+      </g>
+    </g>
+
+    <!-- Tier 3 -->
+    <g id="tier3" transform="translate(0,-210)">
+      <path class="st0" d="M300 700h600v48H300z"/>
+      <path class="st1" d="M340 700c60-36 520-36 580 0"/>
+      <g class="st1">
+        <path d="M340 700v-30"/>
+        <path d="M420 700v-36"/>
+        <path d="M540 700v-40"/>
+        <path d="M660 700v-36"/>
+        <path d="M780 700v-30"/>
+      </g>
+    </g>
+
+    <!-- Tier 4 small pedestals and kalasam -->
+    <g id="crown" transform="translate(0,-320)">
+      <path class="st0" d="M520 540h160v30H520z"/>
+      <path class="st1" d="M560 540v-48c20-8 60-8 80 0v48"/>
+      <path class="st0" d="M600 492v-40"/>
+      <path class="st0" d="M588 460h24"/>
+    </g>
+  </g>
+
+  <!-- Vertical pilasters and carved details (stylized lines) -->
+  <g id="carvings" class="st1">
+    <path d="M220 1100c40-24 80-36 120-40"/>
+    <path d="M980 1100c-40-24-80-36-120-40"/>
+
+    <!-- Add delicate hatching to suggest sculptural depth -->
+    <path d="M360 980c28-18 64-26 100-28"/>
+    <path d="M740 980c-28-18-64-26-100-28"/>
+
+    <!-- small statue silhouettes (stylized) -->
+    <path d="M440 920c6-8 18-10 26-6 8 4 10 14 6 22-4 8-14 10-22 6-8-4-12-12-10-22z"/>
+    <path d="M760 920c-6-8-18-10-26-6-8 4-10 14-6 22 4 8 14 10 22 6 8-4 12-12 10-22z"/>
+  </g>
+
+  <!-- Fine groundline and framing -->
+  <path class="st1" d="M120 1240h960"/>
+  <path class="st1" d="M140 1248h920"/>
+
+  <!-- small artist signature (non-identifying) -->
+  <text x="1060" y="1380" font-size="12" fill="#000" opacity="0.5">heritage-ink</text>
+
+</svg>
